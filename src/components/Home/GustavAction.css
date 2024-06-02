@@ -1,0 +1,47 @@
+/* CSS keyframe animation for sliding effect */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Container to hide overflow */
+.sliding-banner-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Content containing the duplicated images */
+.sliding-banner-content {
+  display: flex;
+  width: 200%; /* Since we have two images, the width is doubled */
+}
+
+/* Image animation */
+.sliding-banner {
+  width: 100%; /* Each image takes half of the container */
+  height: auto; /* Ensure image height adjusts proportionally */
+  animation: slide 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .sliding-banner-content {
+    flex-direction: row; /* Stack images vertically */
+    width: 100%; /* Ensure the content width matches the container width */
+  }
+  .sliding-banner-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Ensure the container width matches the content width */
+  }
+  .sliding-banner {
+    width: 900%; /* Make images fill the container width */
+    max-width: 800px; /* Set a maximum width for the images */
+    height: auto; /* Ensure image height adjusts proportionally */
+    margin: 0 auto; /* Center the images horizontally */
+  }
+}

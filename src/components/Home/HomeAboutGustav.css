@@ -1,0 +1,25 @@
+/* HomeAboutGustav.css */
+
+.transition-transform {
+  transition: transform 1s, opacity 1s;
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}

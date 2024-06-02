@@ -1,0 +1,26 @@
+.books-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .book-card {
+    margin-bottom: 20px; /* Space between book cards in column layout */
+  }
+  
+  @media (min-width: 640px) {
+    .books-container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .book-card {
+      margin-bottom: 0; /* Remove bottom margin in row layout */
+      margin-right: 20px; /* Space between book cards in row layout */
+    }
+    
+    .book-card:last-child {
+      margin-right: 0; /* Remove right margin for the last book card */
+    }
+  }
+  
