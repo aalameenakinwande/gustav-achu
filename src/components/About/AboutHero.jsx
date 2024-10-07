@@ -1,50 +1,34 @@
-import React from 'react';
-import HomeHero from '../../images/heroImages/AboutHero.webp';
+import React from "react";
+import AboutHeroImage from "../../images/heroImages/AboutHero.png";
 
 const AboutHero = () => {
   return (
-    <div
-    className="w-full h-auto"
-    style={{ backgroundColor: "#181349" }}
-  >
-    <div className="max-w-[1600px] mx-auto lg:-mt-38  sm:px-6 ">
-      <div className="flex flex-col lg:flex-row text-white pt-20 md:pt-28 relative">
-          {/* Left Side */}
-          <div className="lg:w-1/2 flex flex-col justify-center px-6 lg:-mt-28 lg:px-0 md:-mt-20">
-           
-            <h6 className="text-3xl lg:text-5xl font-bold leading-tight mt- lg:mt-10" style={{color: '#D7CC50'}}> {/* Adjusted margin-top */}
-              Gustav Achu guides individuals and businesses to connect with their core mission
-            </h6>
-            <p className="text-sm lg:text-base mt-4 lg:mt-8"> {/* Adjusted margin-top */}
-              He shares practical strategies through engaging videos and invites others to join him on a journey towards personal and professional growth. He has helped individuals from various fields, which include:
-            </p>
-            {/* Container for buttons */}
-            <div className="flex flex-wrap mt-6 -mx-2">
-              {/* Individual button */}
-             <button style={{fontSize: '13px'}} className="px-6 py-2 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white text-sm md:text-base mx-2 my-2">
-                Book a call
-              </button> <button style={{fontSize: '13px'}} className="px-6 py-2 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white text-sm md:text-base mx-2 my-2">
-                Book a call
-              </button> <button style={{fontSize: '13px'}} className="px-6 py-2 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white text-sm md:text-base mx-2 my-2">
-                Book a call
-              </button> <button style={{fontSize: '13px'}} className="px-6 py-2 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white text-sm md:text-base mx-2 my-2">
-                Book a call
-              </button>
-              {/* Repeat the button above for as many times as needed */}
-              {/* Ensure no more than 4 buttons per row */}
-            </div>
-          </div>
-
-          {/* Right Side */}
-          <div className="lg:w-1/2 lg:-mt-16">
-            <img src={HomeHero} alt="Gustav Achu"  
-              className="w-full lg:h-auto object-cover"
-              style={{marginLeft: '23px'}} />
-          </div>
-        </div>
+    <div className="relative bg-[#181349] text-center p-10 md:p-0 text-white h-[600px] md:h-[525px] lg:h-[700px]">
+      <img
+        src={AboutHeroImage}
+        alt="Gustav Achu"
+        className="max-w-[300px] mx-auto md:max-w-3xl lg:max-w-[1200px] md:object-contain pt-20 md:pt-20 lg:pt-32"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 top-36 md:top-46 lg:top-10">
+        <h1
+          className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-[#EFE359] mt-0 md:mt-44 lg:mt-96"
+          style={{ fontFamily: "Butler, serif" }}
+        >
+          FROM BAMENDA TO THE WORLD
+        </h1>
+        <p className="text-sm mt-0 lg:mt-4 md:text-md mb-6 lg:max-w-[1400px] mx-auto md:text-md lg:text-xl md:mb-10">
+          Migrating to the US in the early 2000s, Gustav's experience as an
+          immigrant, combined with his diverse professional background as a
+          nurse, marketing and IT professional, community organizer,
+          inspirational speaker, and peak performance mindset coach, has
+          equipped him with a unique perspective on overcoming life's setbacks
+          and achieving success. His dedication to the American economy and
+          socio-cultural fabric has been unwavering.
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default AboutHero;

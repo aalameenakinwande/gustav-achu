@@ -1,11 +1,14 @@
-import React from 'react'
-import ContactHero from './ContactHero'
-import ContactForm from './ContactForm'
+import React from "react";
+import ContactHero from "./ContactHero";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <><ContactHero /><ContactForm /></>
-  )
-}
+    <>
+      <ContactHero />
+      <ContactForm />
+    </>
+  );
+};
 
-export default Contact
+export default Contact;

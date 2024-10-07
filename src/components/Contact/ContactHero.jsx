@@ -1,44 +1,38 @@
-import React from 'react'
-import GustavContact from '../../images/heroImages/GustavContact.webp';
+import React from "react";
+import ContactHeroImage from "../../images/heroImages/CContactHero.webp";
 
+const AboutHero = () => {
+  return (
+    <div className="relative bg-[#181349] text-center p-10 md:p-0 text-white h-[600px] md:h-[525px] lg:h-[700px]">
+      {/* Mobile-specific image styling */}
+      <img
+        src={ContactHeroImage}
+        alt="Gustav Achu"
+        className="max-w-[300px] mx-auto md:max-w-sm lg:max-w-[500px] md:object-contain pt-20 md:pt-20 lg:pt-40"
+      />
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 top-36 md:top-60">
+        <p
+          className="text-sm md:text-md mx-auto mb-0 lg:mb-5 font-semibold      md:text-md lg:text-3xl mt-0 md:mt-44 lg:mt-30"
+          style={{ fontFamily: "Butler, serif" }}
+        >
+          You're just a step away from
+        </p>
 
-const ContactHero = () => {
-    return (
-      <div
-      className="w-full h-auto"
-      style={{ backgroundColor: "#181349" }}
-    >
-      <div className="max-w-[1600px] mx-auto lg:-mt-38  sm:px-6 ">
-        <div className="flex flex-col lg:flex-row px-7 text-white md:pt-28 relative">
-              {/* Left Side */} 
-              <div className="lg:w-1/2 flex flex-col justify-center pt-72 px-0 lg:px-0 lg:pt-0 md:pt-30">
-              <p className="text-lg lg:text-base mt-4 lg:-mt-48" style={{fontWeight: 'bold'}}> {/* Adjusted margin-top */}
-              You're just step away from                </p>
-                <h6 className="text-4xl lg:text-5xl font-bold leading-tight mt- lg:mt-10" style={{color: '#D7CC50'}}> {/* Adjusted margin-top */}
-                UNLEASHING BRILLIANCE!                </h6>
-                <p className="text-sm lg:text-base mt-4 lg:mt-8"> {/* Adjusted margin-top */}
-                Drop us a line through the contact form to kickstart your journey. As a token of our gratitude, we'll send you a complimentary leadership guide to ignite your transformation. Let's make magic happen together!"
-                </p>
-                
-              </div>
-    
-              {/* Right Side */}
-              <div className="hidden lg:w-1/2 md:block">
-                <img src={GustavContact} alt="Gustav Achu" className="w-full h-auto object-cover"   style={{marginLeft: '23px'}} />
-              </div>
+        <h1
+          className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-[#EFE359]"
+          style={{ fontFamily: "Butler, serif" }}
+        >
+          UNLEASHING BRILLIANCE!
+        </h1>
+        <p className="text-sm mt-0 lg:mt-4 md:text-md mb-6 lg:max-w-[900px] mx-auto        md:text-md lg:text-xl md:mb-10">
+          Drop us a line through the contact form to kickstart your journey. As
+          a token of our gratitude, we'll send you a complimentary leadership
+          guide to ignite your transformation. Let's make magic happen
+          together!"
+        </p>
+      </div>
+    </div>
+  );
+};
 
-              <div className="lg:w-1/2 lg:-mt-16 md:hidden">
-            <img
-              src={GustavContact}
-              alt="Hero_Image"
-              className="w-full h-auto object-cover"
-              style={{marginLeft: '28px'}} 
-            />
-          </div>
-            </div>
-          </div>
-        </div>
-      );
-}
-
-export default ContactHero
+export default AboutHero;

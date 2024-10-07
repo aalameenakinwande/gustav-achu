@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import logo from "../images/logo/gustav-acho-logo.png"; // Adjust the path according to your directory structure
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import logo from "../images/logo/gustav-acho-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,111 +24,114 @@ const Navbar = () => {
     };
   }, []);
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  const handleClick = (path) => {
+    closeMenu();
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Determine if the current path should have a specific background color
+  const shouldHaveCustomBackground = [
+    '/learn-more',
+    '/store/1',
+    '/store/2',
+    '/store/3'
+  ].includes(location.pathname);
+
   return (
     <nav
-      className={` ${isSticky ? "fixed top-0 left-0 right-0 z-50" : ""}`}
-      style={{ backgroundColor: "#181349" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out ${
+        isSticky || shouldHaveCustomBackground ? "bg-[#181349]" : "bg-transparent"
+      }`}
     >
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-4">
+      <div className="max-w-[1440px] text-white mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-0">
         <div className="flex items-center justify-between h-20">
-          <div className="flex mt-3">
-            <div className="flex-shrink-0">
-              <a href="/">
-                <img src={logo} alt="Brand Logo" className="h-20 w-auto" />
-              </a>
-            </div>
+          <div className="flex-shrink-0">
+            <Link to="/" onClick={closeMenu}>
+              <img src={logo} alt="Brand Logo" className="h-16 w-auto" />
+            </Link>
           </div>
-          <div className="hidden md:flex justify-center flex-1">
-            <div className="flex items-baseline space-x-4">
-              <a
-                href="/"
-                style={{ fontSize: "15px" }}
-                className="hover:text-blue-600 px-4 py-3 text-white"
-              >
-                Home
-              </a>
-              <a
-                href="/about"
-                style={{ fontSize: "15px" }}
-                className="hover:text-blue-600 px-4 py-3 font-medium text-white"
-              >
-                About
-              </a>
-              <a
-                href="/programs"
-                style={{ fontSize: "15px" }}
-                className="hover:text-blue-600 px-4 py-3 font-medium text-white"
-              >
-                Programs
-              </a>
-              <a
-                href="/youreenough"
-                style={{ fontSize: "15px" }}
-                className="hover:text-blue-600 px-4 py-3 font-medium text-white mt-3"
-              >
-                #YouREnough 
-              </a>
-            </div>
+          <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-10 text-sm 2xl:text-md">
+            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Contact Us", "Community"].map(
+              (item) => (
+                <NavLink
+                  key={item}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="nav-link relative"
+                  activeClassName="active"
+                  onClick={() => handleClick(item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`)}
+                >
+                  {item}
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#BD9A35] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </NavLink>
+              )
+            )}
           </div>
-          <div className="hidden md:block mt-3">
-            <button
-              style={{ fontSize: "13px" }}
-              className="px-6 py-2 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white text-sm md:text-base"
+          <div className="hidden lg:block">
+            <a
+              href="https://calendly.com/gustavachu77/stage-discovery-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F3F3F3] text-sm 2xl:text-md bg-opacity-20 text-white px-6 lg:px-8 py-2 rounded-md hover:bg-white hover:text-black transition duration-300 font-semibold"
             >
-              Book a call
-            </button>
+              Book Gustav to speak
+            </a>
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-3 rounded-md text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
             >
-              <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <XIcon className="block h-8 w-8" aria-hidden="true" />
+                <XIcon className="h-8 w-8" aria-hidden="true" />
               ) : (
-                <MenuIcon className="block h-8 w-8" aria-hidden="true" />
+                <MenuIcon className="h-8 w-8" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
       </div>
-
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="px-2 mt-20 pb-3 space-y-1 sm:px-3">
-          <a
-            href="/"
-            className="text-white block px-4 py-3 text-lg font-medium"
+      <div
+        className={`fixed top-0 left-0 right-0 bottom-0 z-40 bg-[#181349] transition-transform transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ transition: "transform 0.3s ease-in-out" }}
+      >
+        <div className="flex flex-col h-full p-4">
+          <button
+            onClick={closeMenu}
+            className="text-white self-end text-2xl mb-4"
           >
-            Home
-          </a>
-          <hr className="w-3/4 border-t-1 border-white mt-0" />
-          <a
-            href="/about"
-            className="text-white block px-4 py-3 pt-12 rounded-md text-lg font-medium"
-          >
-            About
-          </a>{" "}
-          <hr className="w-3/4 border-t-1 border-white mt-0" />
-          <a
-            href="/programs"
-            className="text-white block px-4 py-3 pt-12 rounded-md text-lg font-medium"
-          >
-            Programs
-          </a>{" "}
-          <hr className="w-3/4 border-t-1 border-white mt-0" />
-          <a
-            href="/youreenough"
-            className="text-white block px-4 py-3 pt-12 rounded-md text-lg font-medium"
-          >
-                         #YouREnough 
-
-          </a>
-          <hr className="w-3/4 pb-80  border-t-1 border-white mt-0" />
-          <button className="w-full text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out border border-white px-6 py-3  text-lg font-medium">
-            Book a call
+            <XIcon className="h-8 w-8" aria-hidden="true" />
           </button>
+          <div className="flex flex-col flex-grow items-center space-y-6">
+            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Contact Us", "Community"].map(
+              (item) => (
+                <Link
+                  key={item}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="text-white block text-center px-3 py-2 rounded-md text-lg font-medium border-b border-[#BD9A35]"
+                  onClick={closeMenu}
+                >
+                  {item}
+                </Link>
+              )
+            )}
+            <a
+              href="https://calendly.com/gustavachu77/stage-discovery-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-white mt-auto bg-[#3C3CC8] hover:bg-blue-700 text-center py-2 rounded-md"
+              onClick={closeMenu}
+            >
+              Book Gustav to speak
+            </a>
+          </div>
         </div>
       </div>
     </nav>

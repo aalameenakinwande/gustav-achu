@@ -1,0 +1,41 @@
+/* styles.css */
+.nav-link {
+    color: #FAF9F6;
+    padding: 12px 16px; /* Equivalent to px-4 py-3 */
+    font-weight: 500;  /* Equivalent to font-medium */
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #BD9A35;
+  }
+  
+  .nav-link.active {
+    color: #BD9A35;  /* Equivalent to text-blue-600 */
+  }
+  
+  /* Add this CSS to your stylesheet */
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: FAF9F6; /* Adjust color as needed */
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 10px;
+    left: 0;
+    background-color: #BD9A35; /* Adjust color as needed */
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  

@@ -1,0 +1,22 @@
+/* AboutHero.css */
+
+.transform {
+    transition: transform 1s, opacity 1s;
+  }
+  
+  .translate-x-0 {
+    transform: translateX(0);
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+  
+  .translate-x-10 {
+    transform: translateX(10%);
+  }
+  
+  .opacity-0 {
+    opacity: 0;
+  }
+  

@@ -1,0 +1,29 @@
+/* Add these styles in your CSS file or within a <style> tag in your component file */
+
+@keyframes dropIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .card {
+    animation: dropIn 5s ease forwards;
+  }
+  
+  .card-1 {
+    animation-delay: 0.1s;
+  }
+  
+  .card-2 {
+    animation-delay: 0.3s;
+  }
+  
+  .card-3 {
+    animation-delay: 0.5s;
+  }
+  

@@ -1,72 +1,69 @@
-import React from "react";
-import HomeHero from "../../images/heroImages/home-hero-Image.svg";
-import { StarIcon } from "@heroicons/react/solid";
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import HomeImage from "../../images/heroImages/HomeHero.jpeg";
+import Image1 from "../../images/brandimages/IBM logo.svg";
+import Image2 from "../../images/brandimages/Hitachi_logo.svg";
+import Image3 from "../../images/brandimages/Forbeslogo.svg";
+import Image4 from "../../images/brandimages/Tecno logo.svg";
+import Image5 from "../../images/brandimages/Business insider logo.svg";
+import Image6 from "../../images/brandimages/Bank of America logo.svg";
+import Image7 from "../../images/brandimages/Business insider logo.svg";
+import Image8 from "../../images/brandimages/Walmart_logo.svg";
+import './Hero.css';
 
 const Hero = () => {
   return (
-      <div
-    className="w-full h-auto"
-    style={{ backgroundColor: "#181349" }}
-  >
-    <div className="max-w-[1600px] mx-auto lg:-mt-38  sm:px-6 ">
-      <div className="flex flex-col lg:flex-row text-white md:pt-28 relative">
-          {/* Left Side */}
-          <div className="lg:w-1/2 flex flex-col px-7 justify-center pt-16 lg:px-0 lg:pt-0 md:pt-30">
-            <div className="flex items-center mb-0 md:-mt-52">
-              <StarIcon className="h-3 w-3 text-white mr-2" />
-              <p style={{ fontSize: "10px" }}>You're enough</p>
-            </div>
-            <h6
-              className="text-3xl lg:text-5xl font-bold leading-tight mt-2 lg:mt-14"
-              style={{ color: "#D7CC50" }}
-            >
-              UNLEASH YOUR PURPOSE, ACTIVATE SUCCESS
-            </h6>
-            <p
-              className="text-sm lg:text-base mt-4"
-              style={{
-                fontFamily: "Revisthond",
-                fontWeight: "bold",
-                fontStyle: "italic",
-              }}
-            >
-              With Gustav Achu
-            </p>
-            <p className="text-sm lg:text-base mt-10 md:mt-10">
-              An inspirational keynote speaker, author and immigrant success
-              coach. Let's make our mark on this side of eternity.
-            </p>
-            <div className="flex items-center mt-10">
-              <p className="text-sm lg:text-base" style={{ fontSize: "10px" }}>
-                See Gustav in Action
-              </p>
-              <ArrowRightIcon className="h-5 w-5 text-white ml-2" />
-            </div>
-            <hr className="w-1/4 border-t-1 border-white mt-0" />
-          </div>
-
-          {/* Right Side */}
-          <div className="lg:w-1/2 lg:-mt-16 md:hidden">
-            <img
-              src={HomeHero}
-              alt="Hero_Image"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="hidden lg:w-1/2 md:block">
-            <img
-              src={HomeHero}
-              alt="Hero_Image"
-              className="w-full lg:h-auto object-cover"
-              style={{marginLeft: '23px'}}
-
-            />
+    <div className="relative h-screen">
+      <img 
+        src={HomeImage} 
+        alt="Hero Background" 
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy" 
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 max-w-[1440px] mx-auto">
+        <h1
+          className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl font-bold text-[#EFE359] mt-36 md:mt-44 lg:mt-56 2xl:mt-28"
+          style={{ fontFamily: "Butler, serif" }}
+        >
+          DESIGN YOUR LIFE AND<br /> LEGACY PURPOSEFULLY
+        </h1>
+        <p className="mb-6 mt-10 text-sm md:text-lg lg:text-xl 2xl:text-2xl md:mb-10 max-w-4xl 2xl:max-w-7xl">
+          Gustav works with entrepreneurs, brands, businesses and athletes to intentionally create their ideal ecosystem and design how they will be remembered.
+        </p>
+        <div className="mt-6 flex flex-col sm:flex-row gap-4">
+        <a 
+            href="https://www.youtube.com/@YouREnoughTV"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#3C3CC8] text-white py-2 lg:py-3 px-6 w-full sm:w-auto text-sm lg:text-lg font-semibold transform transition-transform hover:scale-105 rounded-md flex items-center justify-center gap-2"
+          >
+            Watch my Videos
+            <i className="fas fa-play ml-2"></i> {/* FontAwesome play icon */}
+          </a>
+          <Link 
+            to="/community"
+            className="bg-[#3C3CC8] text-white py-2 lg:py-3 px-6 w-full sm:w-auto text-sm lg:text-lg font-semibold transform transition-transform hover:scale-105 rounded-md"
+          >
+            Get Free Resources
+          </Link>
+        </div>
+        <div className="mt-20 lg:mt-10 xl:mt-20 flex overflow-hidden w-full">
+          <div className="flex items-center space-x-12 animate-scroll">
+            {[Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8].map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Logo ${index + 1}`}
+                className="h-5 md:h-5 lg:h-5 mx-4 filter invert"
+                loading="lazy" 
+              />
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Hero;

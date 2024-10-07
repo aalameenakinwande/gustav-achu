@@ -1,66 +1,61 @@
-import React from 'react';
-import Book1 from '../../images/bookImages/book1.webp';
-import Book2 from '../../images/bookImages/book2.webp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import './Books.css'
+import React from "react";
+import Book1 from "../../images/bookImages/Book1.webp";
+// import Book2 from "../../images/bookImages/Book2.webp";
+
 const Books = () => {
-
-
   return (
-    <div className="bg-[#181349] flex flex-col justify-start items-center pt-16 mt-8 pb-16">
-      <header className="px-8 text-center">
-        <p style={{ color: '#EFE359', fontSize: '13px' }}>BOOKS</p>
-        <h1 className="text-3xl lg:text-4xl text-white font-bold mb-4">
-          BOOKS WRITTEN BY <span style={{ color: '#EFE359' }}>GUSTAV ACHU?</span>
-        </h1>
-        <p style={{ fontSize: '13px' }} className='text-white text-center'>
-          Lorem ipsum dolor sit amet consectetur. Curabitur cursus ipsum vel eu hendrerit malesuada urna et <br />sit. Id dignissim turpis orci viverra mi.
-        </p>
-      </header>
-      <div className="books-container flex flex-col sm:flex-row justify-center items-center mt-8 space-y-4 sm:space-y-0 sm:space-x-4" style={{ maxWidth: '90%' }}>
-        <div className="book-card rounded-lg p-1" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={Book1} alt="Book 1" style={{ width: '180px', height: '230px', marginBottom: '20px' }} />
-          <div>
-            <h2 className="text-center text-sm text-white font-bold mb-1">The Design of books</h2>
-            <p style={{ fontSize: '13px' }} className='text-white text-center'>
-              Book description for The Design of books.
-            </p>
-            <div className="flex justify-center">
-            <button
-            className="mt-10 bg-[#0D1BE1] hover:scale-105 transition-transform duration-300 text-white py-2 px-8 self-center md:self-start"
-            style={{ fontSize: '13px' }}
-          >                Buy Now
-              </button>
-            </div>
-          </div>
+    <div className="bg-[#0B1623] py-8 md:py-20 px-4 md:px-0">
+      <h2 className="text-center text-white font-semibold mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+        BOOK
+      </h2>
+      <div className="flex flex-col md:flex-row justify-center items-stretch gap-12 lg:gap-24">
+      <div className="flex-1 bg-[#181349] text-center p-6 md:p-8 rounded-lg shadow-lg w-full max-w-md">
+          <img
+            src={Book1}
+            alt="Settling In"
+            className="w-full h-auto rounded-md mb-4"
+            loading="lazy"
+          />
+          <h3
+            className="mb-4 text-3xl sm:text-3xl md:text-4xl font-bold text-[#EFE359]"
+            style={{ fontFamily: "Butler, serif" }}
+          >
+            THE SEEKER
+          </h3>
+          <a href="https://www.amazon.com/dp/B0DHZ9D7GC" target="_blank" rel="noopener noreferrer">
+  <button
+    type="button"
+    className="mt-[60px] bg-[#3C3CC8] text-white px-32 py-6 text-xs sm:text-sm rounded-md hover:bg-[#2a2a9e] transition duration-300"
+  >
+    Order Book
+  </button>
+</a>
+
         </div>
-        <div className="book-card rounded-lg p-1" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={Book2} alt="Book 2" style={{ width: '180px', height: '230px', marginBottom: '20px' }} />
-          <div>
-            <h2 className="text-center text-sm text-white font-bold mb-1">Harry Potter and the Cursed Child</h2>
-            <p style={{ fontSize: '13px' }} className='text-white text-center'>
-              Book description for Harry Potter and the Cursed Child.
-            </p>
-            <div className="flex justify-center">
-            <button
-            className="mt-10 bg-[#0D1BE1] hover:scale-105 transition-transform duration-300 text-white py-2 px-8 self-center md:self-start"
-            style={{ fontSize: '13px' }}
-          >                Buy Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center mt-8">
-      <button
-            className="mt-10 bg-[#0D1BE1] hover:scale-105 transition-transform duration-300 text-white py-2 px-8 self-center md:self-start"
-            style={{ fontSize: '13px' }}
-          >          See More <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+
+        {/* <div className="flex-1 bg-[#181349] text-center p-6 md:p-8 rounded-lg shadow-lg w-full max-w-md">
+          <img
+            src={Book2}
+            alt="Settling In"
+            className="w-full h-auto rounded-md mb-4"
+            loading="lazy"
+          />
+          <h3
+            className="mb-4 text-3xl sm:text-3xl md:text-4xl font-bold text-[#EFE359]"
+            style={{ fontFamily: "Butler, serif" }}
+          >
+            SETTLING IN
+          </h3>
+          <button
+            type="button"
+            className="mt-[60px] bg-[#3C3CC8] text-white px-32 py-6 text-xs sm:text-sm rounded-md hover:bg-[#2a2a9e] transition duration-300"
+          >
+            Coming Soon
+          </button>
+        </div> */}
       </div>
     </div>
   );
-}
+};
 
 export default Books;

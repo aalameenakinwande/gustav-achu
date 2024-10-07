@@ -1,90 +1,48 @@
 import React from "react";
-import GustavImage from "../../images/homeImages/Gustav.webp";
-import Gustav from "../../images/gustavImages/GustavAbout.webp";
+import GustavImage from "../../images/gustavImages/Gustav.jpeg";
 
 const AboutGustav = () => {
   return (
-    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row text-white py-16 lg:py-24">
-        {/* First Column: Image */}
-        <div className="md:w-1/2 w-full mb-4 md:mb-0">
+    <div className="max-w-screen-xl mx-auto p-4 sm:p-6 lg:px-0">
+      <div className="flex flex-col lg:flex-row items-center md:items-start mt-10">
+        <div className="flex-1 lg:pr-8">
+          <p className="text-sm md:text-md lg:text-lg mb-8 md:mb-16 text-justify p-8 pt-0 md:p-0">
+            As the founder and Chief Empowerment Officer of GB Achu & Company,
+            Gustav excels in developing individuals and organizations to reach
+            their highest potential. Born and raised in Cameroon, he was
+            instilled with values like love, hard work, and respect from an
+            early age. Gustav's clear communication, combined with practical,
+            results-driven ideas, has been a catalyst for countless people to
+            achieve their goals. He is passionate about helping professionals,
+            entrepreneurs, business owners, and students overcome tough life
+            challenges. Before founding his company, Gustav held various roles
+            as an IT professional in Fortune 500 companies across the tech,
+            finance, and retail sectors. His successful career as a professional
+            MC has allowed him to engage audiences at events across the US,
+            Canada, Europe, Dubai, and Africa, traveling and working in numerous
+            states and countries. Fluent in English, French, and Pidgin English,
+            Gustav has touched lives across four continents. In his writings and
+            speeches, he draws from his rich experiences and practical insights
+            to guide his audience toward success. His approachable manner and
+            genuine care for others' growth have made him a beloved figure among
+            those he mentors and inspires.
+          </p>
+
+          <a
+            href="https://calendly.com/gustavachu77/stage-discovery-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 lg:mt-10 px-10 ml-14 sm:ml-0  md:px-72 lg:px-64 py-4 bg-[#3C3CC8] font-semibold text-white rounded-md shadow hover:bg-blue-700 transition duration-300 whitespace-nowrap hover:scale-105"
+          >
+            Book Gustav to speak
+          </a>
+        </div>
+        <div className="flex-1 mt-8 lg:mt-0 lg:pl-10">
           <img
             src={GustavImage}
             alt="Gustav"
-            className="w-full h-[300px] md:h-auto object-cover hover:scale-105 transition-transform rounded-lg shadow-md"
-          />
-        </div>
-
-        {/* Second Column: Text and Button */}
-        <div className="md:w-1/2 w-full flex flex-col items-start md:pl-6 md:ml-20">
-          <p style={{ color: "#EFE359", fontSize: "13px" }}>About Gustav</p>
-          <h1 className="text-2xl lg:text-4xl font-bold mb-4 text-black">
-            ABOUT IPSUM DOLORE{" "}
-            <span style={{ color: "#EFE359" }}>RISUS DONEC FAUCIBUS AC</span> AC
-            EGET. CURABITUR VESTIBULUM DUI RHONCUS.
-          </h1>
-
-          <p className="text-black pb-6" style={{ fontSize: "13px" }}>
-            Lorem ipsum dolor sit amet consectetur libero. Tortor vel lectus
-            aliquam ipsum tincidunt adipiscing sed. Quis hendrerit bibendum
-            sagittis habitasse pulvinar. Adipiscing morbi volutpat eget orci
-            magna a velit elit. Vulputate suscipit mauris aenean duis nisi
-            porttitor tortor eu. Arcu sit elit libero tellus ut sed. Egestas
-            arcu faucibus ante orci porttitor tellus. Leo fermentum sed ultrices
-            aliquam a massa magna commodo. Tellus cras fusce pellentesque sed
-            neque enim. Commodo purus in id arcu nisl nam consectetur. Tellus
-            mattis nulla diam quis id tincidunt at faucibus.
-          </p>
-        </div>
-      </div>
-
-      <div
-        className="flex flex-col md:flex-row text-white py-16 lg:py-24"
-        style={{ marginTop: "-100px" }}
-      >
-        {/* Second Column: Text and Button */}
-        <div className="md:w-1/2 w-full flex  flex-col items-start md:pl-0 md:ml-0">
-          <p className="text-black pb-6 lg:pr-20"  style={{ fontSize: "13px" }}>
-            Lorem ipsum dolor sit amet consectetur libero. Tortor vel lectus
-            aliquam ipsum tincidunt adipiscing sed. Quis hendrerit bibendum
-            sagittis habitasse pulvinar. Adipiscing morbi volutpat eget orci
-            magna a velit elit. Vulputate suscipit mauris aenean duis nisi
-            porttitor tortor eu. Arcu sit elit libero tellus ut sed. Egestas
-            arcu faucibus ante orci porttitor tellus. Leo fermentum sed ultrices
-            aliquam a massa magna commodo. Tellus cras fusce pellentesque sed
-            neque enim. Commodo purus in id arcu nisl nam consectetur. Tellus
-            mattis nulla diam quis id tincidunt at faucibus.
-          </p>
-          <p className="text-black pb-6 lg:pr-20" style={{ fontSize: "13px" }}>
-            Leo fermentum sed ultrices aliquam a massa magna commodo. Tellus
-            cras fusce pellentesque sed neque enim. Commodo purus in id arcu
-            nisl nam consectetur. Tellus mattis nulla diam quis id tincidunt at
-            faucibus.
-          </p>{" "}
-          <p className="text-black pb-6 lg:pr-20" style={{ fontSize: "13px" }}>
-            Lorem ipsum dolor sit amet consectetur libero. Tortor vel lectus
-            aliquam ipsum tincidunt adipiscing sed. Quis hendrerit bibendum
-            sagittis habitasse pulvinar. Adipiscing morbi volutpat eget orci
-            magna a velit elit. Vulputate suscipit mauris aenean duis nisi
-            porttitor tortor eu. Arcu sit elit libero tellus ut sed. Egestas
-            arcu faucibus ante orci porttitor tellus. Leo fermentum sed ultrices
-            aliquam a massa magna commodo. Tellus cras fusce pellentesque sed
-            neque enim. Commodo purus in id arcu nisl nam consectetur. Tellus
-            mattis nulla diam quis id tincidunt at faucibus.
-          </p>{" "}
-          <p className="text-black pb-6 lg:pr-20" style={{ fontSize: "13px" }}>
-            Leo fermentum sed ultrices aliquam a massa magna commodo. Tellus
-            cras fusce pellentesque sed neque enim. Commodo purus in id arcu
-            nisl nam consectetur. Tellus mattis nulla diam quis id tincidunt at
-            faucibus.
-          </p>
-        </div>
-        {/* First Column: Image */}
-        <div className="md:w-1/2 w-full mb-4 md:mb-0">
-          <img
-            src={Gustav}
-            alt="Gustav"
-            className="w-full h-[300px] md:h-auto hover:scale-105 transition-transform object-cover rounded-lg shadow-md"
+            className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 filter grayscale brightness-90"
+            loading="lazy"
           />
         </div>
       </div>

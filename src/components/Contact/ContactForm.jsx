@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -6,36 +7,98 @@ const ContactForm = () => {
     lastName: "",
     email: "",
     phoneNumber: "",
-    callDate: "",
-    callTime: "",
     message: "",
+    options: {
+      planningEvent: false,
+      bookCall: false,
+    },
   });
+  const [showPopup, setShowPopup] = useState(false); // To show/hide popup
+  const [popupMessage, setPopupMessage] = useState(""); // Popup message
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { name, value, type, checked } = e.target;
+    
+    if (type === "checkbox") {
+      setFormData((prevState) => ({
+        ...prevState,
+        options: {
+          ...prevState.options,
+          [name]: checked,
+        },
+      }));
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your submit logic here, for example:
-    console.log(formData);
+  
+    // Validation checks (excluding message)
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email.includes("@")
+    ) {
+      setPopupMessage("Please fill out all required fields and ensure the email contains '@'.");
+      setShowPopup(true);
+      return;
+    }
+  
+    // Prepare the data for EmailJS
+    const templateParams = {
+      to_name: "Recipient Name", // Replace with actual recipient name or make it dynamic
+      from_name: formData.firstName + " " + formData.lastName,
+      from_email: formData.email,
+      phone_number: formData.phoneNumber,
+      message: formData.message || "No additional message", // Default message if none provided
+      planning_event: formData.options.planningEvent ? "Planning an event" : "",
+      book_call: formData.options.bookCall ? "Book a call" : "",
+    };
+  
+    emailjs.send('service_t55p22v', 'template_04c4p1x', templateParams, 'UqpL8JHu7-1H90Iga')
+      .then((response) => {
+        console.log('Success:', response);
+        setPopupMessage("Message sent successfully!");
+        // Reset form or handle success state
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+          options: {
+            planningEvent: false,
+            bookCall: false,
+          },
+        });
+        setShowPopup(true);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setPopupMessage("Failed to send message. Please try again.");
+        setShowPopup(true);
+      });
+  
+    // Hide popup after 5 seconds
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 5000);
   };
+  
 
   return (
     <div className="max-w-md mx-auto my-8 p-8 sm:p-0">
-      <div className="flex mb-4 text-xs">
-        <button className="flex-1 bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 mr-2">
-          Plan an Event
-        </button>
-        <button className="flex-1 bg-[#181349] text-white hover:bg-blue-600 px-4 py-2">
-          Book a Call
-        </button>
-      </div>
-      <form onSubmit={handleSubmit} className="text-xs">
+      {showPopup && (
+        <div className="fixed top-0 left-0 w-full p-4 bg-blue-500 text-white text-center z-50">
+          {popupMessage}
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="text-xs lg:text-sm">
         <div className="mb-4">
           <label htmlFor="firstName" className="block mb-1">
             First Name <span className="text-red-600">*</span>
@@ -48,6 +111,7 @@ const ContactForm = () => {
             value={formData.firstName}
             onChange={handleChange}
             required
+            aria-required="true"
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -63,6 +127,7 @@ const ContactForm = () => {
             value={formData.lastName}
             onChange={handleChange}
             required
+            aria-required="true"
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -78,6 +143,7 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            aria-required="true"
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -95,58 +161,33 @@ const ContactForm = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
-        <div className="mb-4 flex flex-col sm:flex-row">
-          <div className="mb-4 sm:mb-0 sm:mr-2 w-full sm:w-1/2">
-            <label htmlFor="callDate" className="block mb-1">
-              Call Date
-            </label>
-            <input
-              type="date"
-              id="callDate"
-              name="callDate"
-              placeholder="Select call date"
-              value={formData.callDate}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="w-full sm:w-1/2">
-            <label htmlFor="callTime" className="block mb-1">
-              Call Time
-            </label>
-            <input
-              type="time"
-              id="callTime"
-              name="callTime"
-              placeholder="Select call time"
-              value={formData.callTime}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-        </div>
         <div className="mb-4">
-          <p className="mb-2 mt-8">What are you interested in? (required)</p>
+          <p className="mb-2 mt-8">
+            What are you interested in? <span className="text-red-600">*</span>
+          </p>
           <p className="mb-2 mt-3">Check all that apply:</p>
           <div className="flex items-center mb-2 mt-8">
             <input
               type="checkbox"
-              id="option1"
-              name="option1"
+              id="planningEvent"
+              name="planningEvent"
+              checked={formData.options.planningEvent}
+              onChange={handleChange}
               className="form-checkbox h-4 w-4 text-blue-600 rounded-full mr-2"
             />
-            <label htmlFor="option1">Interdum lorem dolor euismod et</label>
+            <label htmlFor="planningEvent"> Book Gustav to speak
+            </label>
           </div>
           <div className="flex items-center mt-3">
             <input
               type="checkbox"
-              id="option2"
-              name="option2"
+              id="bookCall"
+              name="bookCall"
+              checked={formData.options.bookCall}
+              onChange={handleChange}
               className="form-checkbox h-4 w-4 text-blue-600 rounded-full mr-2"
             />
-            <label htmlFor="option2">
-              Interdum lorem dolor euismod et sed ipsum massa arcu et Non felis.
-            </label>
+            <label htmlFor="bookCall">Book a call</label>
           </div>
         </div>
         <div className="mb-4 mt-8">
@@ -165,7 +206,7 @@ const ContactForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500  hover:scale-105 transition-transform  text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          className="w-full bg-blue-500 hover:scale-105 transition-transform text-white px-4 py-2 rounded-md hover:bg-blue-600"
         >
           Submit
         </button>

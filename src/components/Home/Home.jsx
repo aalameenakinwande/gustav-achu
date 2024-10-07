@@ -1,29 +1,27 @@
-import React from 'react'
-import Hero from './Hero'
-import BrandSlide from './BrandSlide'
-import SuccessStories from './SuccessStories'
-import GustavAction from './GustavAction'
-import Cta from './Cta'
-import Goals from './Goals'
-import Books from './Books'
-import HomeAboutGustav from './HomeAboutGustav'
-import NewsLetter from './NewsLetter'
+import React from "react";
+import Hero from "./Hero";
+import GustavAction from "./GustavAction";
+import Books from "./Books";
+import HomeAboutGustav from "./HomeAboutGustav";
+import SuccessStories from "./SuccessStories";
+import CommunityComponent from "./CommunityComponent ";
+import NewsLetterCta from "./NewsLetterCta";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <BrandSlide />
-      <SuccessStories />
-      <GustavAction />
-      <Cta />
-      <Goals />
-      <Books />
       <HomeAboutGustav />
-      <NewsLetter />
+      <GustavAction />
+      <SuccessStories />
+      <CommunityComponent
+        title="JOIN THE #YouREnough# COMMUNITY"
+        subtitle="Join other people literally designing their life and legacy. Take control of your life's purpose with our programs."
+      />
+      <NewsLetterCta />
+      <Books />
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;
