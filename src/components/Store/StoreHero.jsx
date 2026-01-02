@@ -14,7 +14,7 @@ const StoreHero = ({ scrollToStoreItem }) => {
           className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-[#EFE359] mt-0 md:mt-44 lg:mt-72"
           style={{ fontFamily: "Butler, serif" }}
         >
-          WELCOME TO THE <span className="text-white">#YouREnough#</span> STORE
+          WELCOME TO THE #YouREnough# STORE
         </h1>
         <p className="text-sm mt-0 lg:mt-4 md:text-md mb-6 md:max-w-[750px] mx-auto md:text-md lg:text-xl md:mb-10">
           Embrace the motivation and style of Gustav Achu with our exclusive clothing line designed to inspire and empower you every day.
@@ -22,7 +22,7 @@ const StoreHero = ({ scrollToStoreItem }) => {
         <button
           type="button"
           onClick={scrollToStoreItem} // Scroll to the StoreItem component
-          className="bg-[#3C3CC8] text-white px-8 py-3 text-xs sm:text-xs rounded-md hover:bg-[#2a2a9e] transition duration-300"
+          className="bg-[#3C3CC8] text-white px-8 py-3 text-xs sm:text-xs rounded-md  duration-300 transform transition-transform hover:scale-105 "
         >
           Shop Now
         </button>

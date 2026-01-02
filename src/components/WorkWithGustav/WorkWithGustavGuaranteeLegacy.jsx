@@ -21,8 +21,8 @@ const WorkWithGustavGuaranteeLegacy = () => {
    
 
           <p className="text-base md:text-sm tracking-wide leading-relaxed mb-4 md:mb-3 xl:mb-5 text-black">
-          • 16 weeks commitment: 
-  <br /> • Weekly 1:1 private coaching calls (30 minutes) plus mentorship.
+          • 8 weeks commitment: 
+  <br /> • Weekly 1:1 private coaching calls (1 hour) plus mentorship.
   <br /> • Wealth accumulation, expansion, and preservation.
   <br /> • Investing strategies for growth & profits
   <br /> • Next of kin orientation.
@@ -44,13 +44,13 @@ const WorkWithGustavGuaranteeLegacy = () => {
               href="https://calendly.com/gustavachu77/guarantee-your-legacy?month=2024-09"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#3C3CC8] hover:bg-blue-700 text-white py-2 px-4 text-sm text-center rounded-md"
+              className="bg-[#3C3CC8]  text-white py-2 px-4 text-sm text-center rounded-md transform transition-transform hover:scale-105 "
             >
               Access Now
             </a>
             <Link
               to="/learn-more"
-              className="bg-[#3C3CC8] hover:bg-blue-700 text-white py-2 px-4 text-sm text-center rounded-md"
+              className="bg-[#3C3CC8]  text-white py-2 px-4 text-sm text-center rounded-md transform transition-transform hover:scale-105 "
             >
               Learn more
             </Link>

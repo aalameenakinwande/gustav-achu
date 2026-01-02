@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import CapImage from '../../images/StoreImages/Cup.webp';
-import Cupone from '../../images/StoreImages/Cup1.webp';
-import Cupfour from '../../images/StoreImages/Cup4.webp';
-import Cupfive from '../../images/StoreImages/Cup5.webp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import CapImage from '../../images/StoreImages/blackbluecup.webp';
+import Cupone from '../../images/StoreImages/anotherbluecup.webp';
+import Cupfour from '../../images/StoreImages/blackcup.webp';
+import Cupfive from '../../images/StoreImages/bluecup.webp';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Mug = () => {
   const [mainImage, setMainImage] = useState(CapImage);
@@ -25,6 +25,12 @@ const Mug = () => {
               alt="Product Thumbnail"
               className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
               onClick={() => setMainImage(Cupone)}
+            />
+               <img
+              src={Cupfour}
+              alt="Product Thumbnail"
+              className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
+              onClick={() => setMainImage(Cupfour)}
             />
             
           </div>
@@ -77,20 +83,28 @@ const Mug = () => {
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
                 onClick={() => setMainImage(Cupfour)}
               />
+            
             </div>
           </div>
       
           <div className="mb-4">
-            <span className="text-gray-600 text-sm">Select Size</span>
+            {/* <span className="text-gray-600 text-sm">Select Size</span>
             <div className="mt-2">
               <span className="border border-gray-300 text-sm py-1 px-2 rounded-lg">One Size Fits All</span>
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between md:space-x-4">
-            <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform">Add To Bag</button>
-            <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
+          <a
+  href="https://buy.stripe.com/7sI3dg9uaaJmg3S00i"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform inline-block text-center"
+>
+  Buy Now
+</a>
+            {/* <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
               Favorite <FontAwesomeIcon icon={faHeart} className="ml-1" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

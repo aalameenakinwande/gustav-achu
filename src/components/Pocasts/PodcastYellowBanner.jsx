@@ -6,8 +6,8 @@ const PodcastYellowBanner = () => {
       <div className="max-w-[1600px] mx-auto lg:-mt-38 sm:px-6">
         <p className="text-center">
           <span className="font-bold">New episodes</span> released every{" "}
-          <span className="font-bold">Monday</span> to start your week and{" "}
-          <span className="font-bold">Thursday</span> to get you through it
+          <span className="font-bold">Tuesday</span> to start your week 
+          {/* <span className="font-bold">Thursday</span> to get you through it */}
         </p>
       </div>
     </div>

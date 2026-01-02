@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Shirt1 from '../../images/StoreImages/Tees.webp';
 import Shirt2 from '../../images/StoreImages/shirt2.webp';
 import Shirt3 from '../../images/StoreImages/shirt3.webp';
-import Shirt4 from '../../images/StoreImages/shirt4.jpg';
-import Shirt5 from '../../images/StoreImages/shirt5.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+// import Shirt4 from '../../images/StoreImages/shirt4.jpg';
+// // import Shirt5 from '../../images/StoreImages/shirt5.jpg';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Shirt = () => {
   const [mainImage, setMainImage] = useState(Shirt1);
@@ -34,7 +34,8 @@ const Shirt = () => {
               alt="Product Thumbnail"
               className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
               onClick={() => setMainImage(Shirt3)}
-            />   <img
+            />  
+             {/* <img
             src={Shirt4}
             alt="Product Thumbnail"
             className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
@@ -44,7 +45,7 @@ const Shirt = () => {
           alt="Product Thumbnail"
           className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
           onClick={() => setMainImage(Shirt5)}
-        />
+        /> */}
           </div>
           {/* Main Product Image */}
           <div className="flex-1 flex justify-center md:mt-0 mt-4">
@@ -115,10 +116,16 @@ const Shirt = () => {
 </div>
 
           <div className="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between md:space-x-4">
-            <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform">Add To Bag</button>
-            <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
+          <a
+  href="https://buy.stripe.com/28obJMfSy04I2d29AT"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform inline-block text-center"
+>
+  Buy Now
+</a>            {/* <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
               Favorite <FontAwesomeIcon icon={faHeart} className="ml-1" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import CapImage from '../../images/StoreImages/CapImage.webp';
-import CapImageTwo from '../../images/StoreImages/CapImage2.webp';
-import CapBlue from '../../images/StoreImages/CapBlue.webp';
-import CapGrey from '../../images/StoreImages/CapGrey.webp';
-import CapYellow from '../../images/StoreImages/CapYellow.webp';
-import Capwhite from '../../images/StoreImages/Capwhite.webp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import CapBlackandYellow from '../../images/StoreImages/blackandyellow.webp';
+import CapBlueandwhite from '../../images/StoreImages/blueandwhite.webp';
+import CapGreyandWhite from '../../images/StoreImages/greyandwhite.webp';
+import CapRedandWhite from '../../images/StoreImages/redandwhite.webp';
+import CapRed from '../../images/StoreImages/red.webp';
+import CapWHiteandBlack from '../../images/StoreImages/whiteandblack.webp';
+import CapWhiteandYellow from '../../images/StoreImages/whiteandyellow.webp';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Shirt = () => {
-  const [mainImage, setMainImage] = useState(CapImage);
+  const [mainImage, setMainImage] = useState(CapBlueandwhite);
 
   return (
     <div className="py-28 md:py-20 lg:py-32 px-4 md:px-10 lg:px-20 overflow-hidden max-w-[1440px] mx-auto">
@@ -19,16 +20,34 @@ const Shirt = () => {
           {/* Hide for mobile view */}
           <div className="hidden md:flex flex-col items-start space-y-2 md:space-y-5 md:mr-4">
             <img
-              src={CapImage}
+              src={CapBlueandwhite}
               alt="Product Thumbnail"
               className="w-20 h-18 shadow-lg hover:scale-105 transition-transform rounded-lg object-cover cursor-pointer"
-              onClick={() => setMainImage(CapImage)}
+              onClick={() => setMainImage(CapBlueandwhite)}
             />
             <img
-              src={CapImageTwo}
+              src={CapBlackandYellow}
               alt="Product Thumbnail"
               className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
-              onClick={() => setMainImage(CapImageTwo)}
+              onClick={() => setMainImage(CapBlackandYellow)}
+            />
+               <img
+              src={CapGreyandWhite}
+              alt="Product Thumbnail"
+              className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
+              onClick={() => setMainImage(CapGreyandWhite)}
+            />
+            <img
+              src={CapRed}
+              alt="Product Thumbnail"
+              className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
+              onClick={() => setMainImage(CapRed)}
+            />
+            <img
+              src={CapRedandWhite}
+              alt="Product Thumbnail"
+              className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
+              onClick={() => setMainImage(CapRedandWhite)}
             />
           </div>
           {/* Main Product Image */}
@@ -53,34 +72,46 @@ const Shirt = () => {
             <span className="text-gray-600 text-sm">Select Color</span>
             <div className="flex flex-wrap mt-2 -mx-2 md:flex-row md:space-x-2">
               <img
-                src={CapImage}
+                src={CapBlackandYellow}
                 alt="Color Option"
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
-                onClick={() => setMainImage(CapImage)}
+                onClick={() => setMainImage(CapBlackandYellow)}
+              />
+                <img
+                src={CapBlueandwhite}
+                alt="Color Option"
+                className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
+                onClick={() => setMainImage(CapBlueandwhite)}
               />
               <img
-                src={CapBlue}
+                src={CapWHiteandBlack}
                 alt="Color Option"
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
-                onClick={() => setMainImage(CapBlue)}
+                onClick={() => setMainImage(CapWHiteandBlack)}
               />
               <img
-                src={CapGrey}
+                src={CapRedandWhite}
                 alt="Color Option"
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
-                onClick={() => setMainImage(CapGrey)}
+                onClick={() => setMainImage(CapRedandWhite)}
               />
               <img
-                src={CapYellow}
+                src={CapRed}
                 alt="Color Option"
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
-                onClick={() => setMainImage(CapYellow)}
+                onClick={() => setMainImage(CapRed)}
               />
               <img
-                src={Capwhite}
+                src={CapGreyandWhite}
                 alt="Color Option"
                 className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
-                onClick={() => setMainImage(Capwhite)}
+                onClick={() => setMainImage(CapGreyandWhite)}
+              />
+                <img
+                src={CapWhiteandYellow}
+                alt="Color Option"
+                className="w-14 h-12 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer mx-2 my-2 md:w-20 md:h-18"
+                onClick={() => setMainImage(CapWhiteandYellow)}
               />
             </div>
           </div>
@@ -88,30 +119,37 @@ const Shirt = () => {
             <span className="text-gray-600 text-sm">Product Images</span>
             <div className="flex space-x-2 mt-2">
               <img
-                src={CapImage}
+                src={CapRedandWhite}
                 alt="Product Thumbnail"
                 className="w-20 h-18 object-cover shadow-lg hover:scale-105 transition-transform border border-gray-300 cursor-pointer"
-                onClick={() => setMainImage(CapImage)}
+                onClick={() => setMainImage(CapRedandWhite)}
               />
               <img
-                src={CapImageTwo}
+                src={CapRed}
                 alt="Product Thumbnail"
                 className="w-20 h-18 rounded-lg shadow-lg hover:scale-105 transition-transform object-cover cursor-pointer"
-                onClick={() => setMainImage(CapImageTwo)}
+                onClick={() => setMainImage(CapRed)}
               />
             </div>
           </div>
           <div className="mb-4">
-            <span className="text-gray-600 text-sm">Select Size</span>
+            {/* <span className="text-gray-600 text-sm">Select Size</span>
             <div className="mt-2">
               <span className="border border-gray-300 text-sm py-1 px-2 rounded-lg">One Size Fits All</span>
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between md:space-x-4">
-            <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform">Add To Bag</button>
-            <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
+          <a
+  href="https://buy.stripe.com/5kA1586hY3gU3h6fZf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white py-2 px-4 rounded-lg mb-2 md:mb-0 md:w-full hover:scale-105 transition-transform inline-block text-center"
+>
+  Buy Now
+</a>
+            {/* <button className="border border-gray-300 py-2 px-4 rounded-lg text-sm flex items-center justify-center md:w-full mt-2 md:mt-0 hover:scale-105 transition-transform">
               Favorite <FontAwesomeIcon icon={faHeart} className="ml-1" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

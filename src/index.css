@@ -4,14 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
+html,
 body {
-    background-color: white;
-    font-family: 'Poppins', sans-serif;
-  }
-  *,
-  ::before,
-  ::after {
-    border-width: 0;
-  }
-  
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden; /* 🚫 Prevent horizontal scrolling */
+}
+
+*,
+::before,
+::after {
+  border-width: 0;
+}

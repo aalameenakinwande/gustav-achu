@@ -32,7 +32,7 @@ const AboutGustav = () => {
             href="https://calendly.com/gustavachu77/stage-discovery-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 lg:mt-10 px-10 ml-14 sm:ml-0  md:px-72 lg:px-64 py-4 bg-[#3C3CC8] font-semibold text-white rounded-md shadow hover:bg-blue-700 transition duration-300 whitespace-nowrap hover:scale-105"
+            className="mt-4 lg:mt-10 px-10 ml-14 sm:ml-0  md:px-72 lg:px-64 py-4 bg-[#3C3CC8] font-semibold text-white rounded-md shadow transform transition-transform hover:scale-105   duration-300 whitespace-nowrap "
           >
             Book Gustav to speak
           </a>

@@ -1,8 +1,8 @@
 import React from "react";
 import Spotify from "../../images/PodcastLogo/Spotify.png";
-import Apple from "../../images/PodcastLogo/Apple.png";
+// import Apple from "../../images/PodcastLogo/Apple.png";
 import Youtube from "../../images/PodcastLogo/youtube.png";
-import Google from "../../images/PodcastLogo/google.png";
+// import Google from "../../images/PodcastLogo/google.png";
 
 const PodcastEpisode = () => {
   return (
@@ -26,7 +26,7 @@ const PodcastEpisode = () => {
           </p>
         </div>
         <div className="mt-8 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-          <a
+          {/* <a
             href="https://www.apple.com/apple-podcasts/"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,9 +38,9 @@ const PodcastEpisode = () => {
               className="w-6 h-6 inline-block mr-2"
             />
             Listen on Apple Podcasts
-          </a>
+          </a> */}
           <a
-            href="https://open.spotify.com/"
+            href="https://open.spotify.com/show/6wFcamP6QG7tEkiml5KD9K"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 text-white px-4 py-2 rounded-md flex items-center justify-center"
@@ -65,7 +65,7 @@ const PodcastEpisode = () => {
             />
             Watch and Listen on YouTube
           </a>
-          <a
+          {/* <a
             href="https://podcasts.google.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -77,7 +77,7 @@ const PodcastEpisode = () => {
               className="w-6 h-6 inline-block mr-2"
             />
             Listen on Google Podcasts
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

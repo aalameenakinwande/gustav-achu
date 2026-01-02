@@ -35,7 +35,7 @@ const WorkWithGustavOneWithGustav = () => {
               to="https://calendly.com/gustavachu77/1-1-with-gustav?month=2024-09"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#3C3CC8] hover:bg-red-700 text-white py-2 px-4 text-sm text-center rounded-md"
+              className="bg-[#3C3CC8] transform transition-transform hover:scale-105  text-white py-2 px-4 text-sm text-center rounded-md"
             >
               Access Now
             </Link>

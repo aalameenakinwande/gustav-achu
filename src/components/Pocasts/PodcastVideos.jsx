@@ -1,146 +1,143 @@
 import React, { useState } from "react";
-// import Image1 from "../../images/YoutubeImages/Image1.jpg";
-// import Image2 from "../../images/YoutubeImages/Image2.jpg";
-// import Image3 from "../../images/YoutubeImages/Image3.jpg";
-// import Image4 from "../../images/YoutubeImages/Image4.jpg";
-// import Image5 from "../../images/YoutubeImages/Image5.jpg";
-// import Image6 from "../../images/YoutubeImages/Image6.jpg";
-// import Image7 from "../../images/YoutubeImages/Image7.jpg";
-// import Image8 from "../../images/YoutubeImages/Image8.jpg";
-// import Image9 from "../../images/YoutubeImages/Image9.jpg";
-// import Image10 from "../../images/YoutubeImages/Image10.jpg";
-// import Image11 from "../../images/YoutubeImages/Image11.jpg";
-// import Image12 from "../../images/YoutubeImages/Image12.jpg";
-import Image13 from "../../images/YoutubeImages/Image13.jpg";
-import Image14 from "../../images/YoutubeImages/Image14.jpg";
-import Image15 from "../../images/YoutubeImages/Image15.jpg";
+import PodcastImage from "../../images/YoutubeImages/PoscastImage.webp";
 
 const podcastData = [
+      {
+    episode: 17,
+    author: "Money Experts: #1 Formula to Get Rich off Your Normal Salary| Ep17",
+    date: "28/10/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/7e2xAIQHEFWsbYUFI08ieN?si=40bd2c394ba64885",
+  },
+     {
+    episode: 16,
+    author: "This is Why You Are Failing | Ep16 Dr. Toye Sobande",
+    date: "14/10/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/3nzl1hRIWW9yFYND3M6FzE?si=a7863424b9d54f00",
+  },
   {
+    
     episode: 15,
-    title:
-      "Empowering African Youth in the Global Economy | Suellaba FM | Part 3",
-    author: "Gustav Achu",
-    date: "28/06/2024",
-    image: Image14,
-    link: "https://www.youtube.com/watch?v=pxa7nhSrBxI",
+    author: "The Best Financial Advice You'll Ever Get | Ep15",
+    date: "01/10/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/27Ts0PlXkYgIDLWvaCElaR?si=63821e888bc948ef",
   },
   {
     episode: 14,
-    title:
-      "Empowering African Youth in the Global Economy | Suellaba FM | Part 2",
-    author: "Gustav Achu",
-    date: "21/06/2024",
-    image: Image15,
-    link: "https://www.youtube.com/watch?v=vFgD_tKG1Oc",
-  },
-  {
-    episode: 13,
-    title:
-      "Empowering African Youth in the Global Economy | Suellaba FM | Part 1",
-    author: "Gustav Achu",
-    date: "14/06/2024",
-    image: Image13,
-    link: "https://www.youtube.com/watch?v=EpQl7i9857c",
+    author: "How to Get Rich In Real Estate The Right Way | Ep14 Tenny Tolofari ",
+    date: "02/08/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/27qSiGZfDVHXRJkGbneEFX?si=7ac25c28b2494807",
   },
 
-  // {
-  //   episode: 12,
-  //   title: "How Anyone Can Bounce Back From Rock Bottom",
-  //   author: "Gustav Achu",
-  //   date: "07/06/2024",
-  //   image: Image12,
-  //   link: "https://www.youtube.com/watch?v=IQpF7x54vfQ",
-  // },
-  // {
-  //   episode: 11,
-  //   title: "The Surprising Benefits Of Embracing Failure",
-  //   author: "Gustav Achu",
-  //   date: "31/05/2024",
-  //   image: Image11,
-  //   link: "https://www.youtube.com/watch?v=q7FGXz_38ZI",
-  // },
-  // {
-  //   episode: 10,
-  //   title: "Here's The TRICK To Finding Genuine Happiness",
-  //   author: "Gustav Achu",
-  //   date: "24/05/2024",
-  //   image: Image10,
-  //   link: "https://www.youtube.com/watch?v=U1lvCGusGqQ&t=12s",
-  // },
-  // {
-  //   episode: 9,
-  //   title: "You Can Predict Your Own Future LIKE THIS!",
-  //   author: "Gustav Achu",
-  //   date: "17/05/2024",
-  //   image: Image9,
-  //   link: "https://www.youtube.com/watch?v=BaCWE9HmSmY&t=6s",
-  // },
-  // {
-  //   episode: 8,
-  //   title: "Are You A Victim Of Social Media Influence?",
-  //   author: "Gustav Achu",
-  //   date: "10/05/2024",
-  //   image: Image8,
-  //   link: "https://www.youtube.com/watch?v=0Mq91Yo4EO8&t=6s",
-  // },
-  // {
-  //   episode: 7,
-  //   title: "Breaking Free from Doubt: Embrace Confidence",
-  //   author: "Gustav Achu",
-  //   date: "03/05/2024",
-  //   image: Image7,
-  //   link: "https://www.youtube.com/watch?v=JmZ-JuuKQCw&t=5s",
-  // },
-  // {
-  //   episode: 6,
-  //   title: "Key Assets for a Secure Future: 7 Investments to Acquire by Age 40",
-  //   author: "Gustav Achu",
-  //   date: "26/04/2024",
-  //   image: Image6,
-  //   link: "https://www.youtube.com/watch?v=WbxGwkQJiT8&t=16s",
-  // },
-  // {
-  //   episode: 5,
-  //   title: "6 Habits That Made My First 6 Figures - Gustav B Achu YouREnoughTV",
-  //   author: "Gustav Achu",
-  //   date: "19/04/2024",
-  //   image: Image5,
-  //   link: "https://www.youtube.com/watch?v=nwVlUhJzp14&t=2s",
-  // },
-  // {
-  //   episode: 4,
-  //   title: "How not to quit when things get too hard",
-  //   author: "Gustav Achu",
-  //   date: "12/04/2024",
-  //   image: Image4,
-  //   link: "https://www.youtube.com/watch?v=40lPvZqOm7s&t=3s",
-  // },
-  // {
-  //   episode: 3,
-  //   title:
-  //     "How to walk your own path Face Your regrets and Build a life of Massive success",
-  //   author: "Gustav Achu",
-  //   date: "05/04/2024",
-  //   image: Image3,
-  //   link: "https://www.youtube.com/watch?v=2DED6B5Fx2E&t=4s",
-  // },
-  // {
-  //   episode: 2,
-  //   title: "Build Bridges Not Walls: Navigating relationships in a digital age",
-  //   author: "Gustav Achu",
-  //   date: "22/03/2024",
-  //   image: Image2,
-  //   link: "https://www.youtube.com/watch?v=VtUEdoqEoUE",
-  // },
-  // {
-  //   episode: 1,
-  //   title: "Build Bridges Not Walls: Navigating relationships in a digital age",
-  //   author: "Gustav Achu",
-  //   date: "22/03/2024",
-  //   image: Image1,
-  //   link: "https://www.youtube.com/watch?v=Q-X_zt4Nftc",
-  // },
+
+  {
+    episode: 13,
+    author: "How This African Immigrant Built a $200M Real Estate Empire (and how you can too!) | Ep13",
+    date: "05/08/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/0yWmTnPUiSz5PQ8H54mGfL?si=9c45caed273d42ea",
+  },
+
+
+
+  {
+    episode: 12,
+    author: "The Hard Truth About Your 40s (And How to Thrive) | Ep.12 Pastor Ajimo",
+    date: "22/07/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/5lTOLPXZsdTOwXZWKUGpWE?si=b700ad79a4354e34",
+  },
+
+
+  {
+    episode: 11,
+    author: "From Adhd to Award-Winner: Wax Dey's Untold Journey | Ep.11 Wax Dey",
+    date: "08/07/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/5y4vzjGwAcjcgYYmL2jnaq?si=0175afa6e5484689",
+  },
+
+
+
+
+  {
+    episode: 10,
+    author: "How To Ethically Charge More 10X (Doing Less!) | Ep.10 Dr. Joybert Javnyuy",
+    date: "24/06/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/4gtfKTjHPB22UtnLWK6h3Z?si=d1c72c0d506a4634",
+  },
+
+
+
+
+  {
+    episode: 9,
+    author: "How Financial Ignorance Destroyed My First Home Investment | Ep9",
+    date: "03/06/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/2HuwvQiMV6yjRtfZ4bbtEq?si=5d1eb32a75a443ae",
+  },
+    {
+    episode: 8,
+    author: "How the Rich AVOID Paying Taxes (And How You Can Join Them) | Episode 8- Sir Charles Njoya",
+    date: "20/05/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/3TyU05LM16SnDQWVzNDrTw?si=3f29e1e73d604be0",
+  },
+    {
+    episode: 7,
+    author: "From Jobless Nigerian Immigrant to Top 20 Black Men in Canada | Ep7- Paul Adeyeye's Shocking Story",
+    date: "06/05/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/0muy7QxDHJQCZimeTxIkfT?si=74f1dacc9d2b42bc",
+  },
+  {
+    
+    episode: 6,
+    author: "Immigrant Millionaire Exposes Why Most Immigrants Stay Poor in America | Ep6- Douglas Eze",
+    date: "29/04/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/1sfjU6Rp0qw29G3myv50SV?si=8170d798259741fb",
+  },
+  {
+    episode: 5,
+    author: "The $1 Product Everyone Will Be Using in 5 Years | Ep5- Derrick Tansi",
+    date: "15/04/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/1jwQuJXIQSkgLE58sZGjBd?si=4540b66443524e47",
+  },
+  {
+    episode: 4,
+    author: "How to Build a Recession Proof Career in an AI Driven World! | Ep4- Karl Melo",
+    date: "08/04/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/3IuoBR5rsnoKOrtB6fUP3P?si=GkSH8PeuTsiyW_mMfGnMnw",
+  },
+  {
+    episode: 3,
+    author: "How He Built a Global Sports Empire from Scratch | Ep3- Kingsley Pungong",
+    date: "01/04/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/2LArc3oWwnxxDWi8IXKOPO?si=b29737d60a6e4421",
+  },
+  {
+    episode: 2,
+    author: "Are African Youths Ready to Compete Globally? | Ep2- Leonard Bruce Behyia",
+    date: "25/03/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/12vwEu2h3dZeMrB1eoU1A7?si=ddb18f1e8743401b",
+  },
+  {
+    episode: 1,
+    author: "Heinrich Edimo | What the Wealthy Know About Investing That You Don’t | Ep1- Dr.Heinrich Edimo",
+    date: "15/03/2025",
+    image: PodcastImage,
+    link: "https://open.spotify.com/episode/5iDARX7itLiZ6SwRyJHUFm",
+  },
 ];
 
 const PodcastVideos = () => {
@@ -155,7 +152,7 @@ const PodcastVideos = () => {
     <div className="max-w-7xl mx-auto p-3 py-7 md:p-20">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {podcastData
-          .slice(0, showMore ? podcastData.length : 3)
+          .slice(0, showMore ? podcastData.length : 6)
           .map((podcast, index) => (
             <a
               key={index}
@@ -183,12 +180,12 @@ const PodcastVideos = () => {
           ))}
       </div>
       <div className="flex justify-center mt-10">
-        {/* <button
+        <button
           onClick={handleShowMore}
           className="bg-[#181349] text-white px-8 py-3 rounded-md  hover:bg-blue-700 transition duration-300 ease-in-out"
         >
           {showMore ? "Show Less" : "Show More"}
-        </button> */}
+        </button>
       </div>
     </div>
   );

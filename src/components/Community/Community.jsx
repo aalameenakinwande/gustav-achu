@@ -4,18 +4,22 @@ import axios from "axios";
 const Community = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
+  const FORM_ID = "7070892";
+  const API_KEY = "orcj11jDI14VkybpDd91mA";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const API_KEY = "orcj11jDI14VkybpDd91mA";
-    const FORM_ID = "7070892";
-
     const subscriberData = {
       api_key: API_KEY,
+      email,
       first_name: name,
-      email: email,
+      fields: {
+        phone_number: phone,
+      },
     };
 
     try {
@@ -24,10 +28,12 @@ const Community = () => {
         subscriberData
       );
 
+      console.log(response.data);
       if (response.data.subscription) {
         setMessage("Successfully subscribed! Please check your email.");
-        setName(""); 
-        setEmail(""); 
+        setName("");
+        setEmail("");
+        setPhone("");
       } else {
         setMessage("Subscription failed. Please try again.");
       }
@@ -35,11 +41,11 @@ const Community = () => {
       console.error("Error subscribing:", error);
       setMessage("An error occurred. Please try again later.");
     }
-
     setTimeout(() => {
       setMessage("");
     }, 5000);
   };
+
 
   return (
     <>
@@ -55,15 +61,8 @@ const Community = () => {
             WEEKLY INSIGHTS TO SCALE INVESTMENT, <br />PERSONAL GROWTH AND LEGACY
           </h2>
           <p className="text-sm mt-0 lg:mt-8 md:text-md mb-6 lg:max-w-[1800px] mx-auto md:text-md lg:text-xl md:mb-10">
-            {/* Every Friday, receive free and practical tips to enhance your
-            abundance, wellness, and freedom.
-            <br className="hidden md:block" /> Enrich your life from the inside
-            out and level up without leaving your inbox. */}
-
-
-           Receive free and practical tips to maximize profit-making opportunities, learn how to invest wisely and      <br className="hidden md:block" /> build a legacy that outlives you.
-Enrich your life from the inside out and level up without leaving your inbox.
-
+            Receive free and practical tips to maximize profit-making opportunities, learn how to invest wisely and      <br className="hidden md:block" /> build a legacy that outlives you.
+            Enrich your life from the inside out and level up without leaving your inbox.
           </p>
 
           {message && (
@@ -111,6 +110,21 @@ Enrich your life from the inside out and level up without leaving your inbox.
                   required
                 />
               </div>
+            </div>
+            <div className="w-full lg:w-80 mx-auto mb-6 md:mb-10">
+              <label
+                htmlFor="phone"
+                className="block text-left text-sm font-medium mb-1"
+              >
+                Phone Number*
+              </label>
+              <input
+        type="tel"
+        placeholder="Your phone number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        className="p-2 w-full lg:w-80 border border-gray-300 text-gray-900 bg-white"
+      />
             </div>
             <button
               type="submit"

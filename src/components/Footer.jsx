@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import FooterImage from "../images/logo/gustav-acho-logo.png";
@@ -12,18 +12,22 @@ import {
 const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
+  const FORM_ID = "7070892";
+  const API_KEY = "orcj11jDI14VkybpDd91mA";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const API_KEY = "orcj11jDI14VkybpDd91mA";
-    const FORM_ID = "7070892"; // Use an existing Form ID
-
     const subscriberData = {
       api_key: API_KEY,
+      email,
       first_name: name,
-      email: email,
+      fields: {
+        phone_number: phone,
+      },
     };
 
     try {
@@ -35,9 +39,9 @@ const Footer = () => {
       console.log(response.data);
       if (response.data.subscription) {
         setMessage("Successfully subscribed! Please check your email.");
-
         setName("");
         setEmail("");
+        setPhone("");
       } else {
         setMessage("Subscription failed. Please try again.");
       }
@@ -45,11 +49,30 @@ const Footer = () => {
       console.error("Error subscribing:", error);
       setMessage("An error occurred. Please try again later.");
     }
-
     setTimeout(() => {
       setMessage("");
     }, 5000);
   };
+
+  useEffect(() => {
+  // Set LinkedIn Partner ID
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push("8418393");
+
+  // Inject the LinkedIn Insight script
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.async = true;
+  script.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+
+  document.head.appendChild(script);
+
+  // Optional cleanup (not strictly necessary here)
+  return () => {
+    document.head.removeChild(script);
+  };
+}, []);
+
 
   return (
     <footer className="bg-[#181349] text-white py-12 relative">
@@ -88,9 +111,14 @@ const Footer = () => {
                   Store
                 </Link>
               </li>
+                {/* <li>
+                <Link to="/masterclass" className="hover:underline">
+                  Masterclass
+                </Link>
+              </li> */}
               <li>
-                <Link to="/contact-us" className="hover:underline">
-                  Contact Us
+                <Link to="/contact" className="hover:underline">
+                  Contact 
                 </Link>
               </li>
               <li>
@@ -98,6 +126,21 @@ const Footer = () => {
                   Community
                 </Link>
               </li>
+              <li>
+                <Link to="/resource" className="hover:underline">
+                  Resources
+                    </Link>
+              </li>
+              {/* <li>
+                <Link to="/events" className="hover:underline">
+                  Events
+                    </Link>
+              </li> */}
+              {/* <li>
+                <Link to="/seminar" className="hover:underline">
+                  Seminar
+                    </Link>
+              </li> */}
             </ul>
           </nav>
           <div className="flex space-x-10 md:pl-5">
@@ -157,29 +200,37 @@ const Footer = () => {
             all their lives).
           </p>
           <form onSubmit={handleSubmit} className="mb-4">
-            <input
-              type="text"
-              placeholder="First and last name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-4"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-10"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white mb-10 md:mb-0 px-6 py-3 rounded-md w-full text-lg transform transition-transform hover:scale-105"
-            >
-              Gain Free Access
-            </button>
-          </form>
+      <input
+        type="text"
+        placeholder="First and last name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-4"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-4"
+        required
+      />
+      <input
+        type="tel"
+        placeholder="Your phone number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-10"
+      />
+      <button
+        type="submit"
+        className="bg-blue-600 text-white mb-10 md:mb-0 px-6 py-3 rounded-md w-full text-lg transform transition-transform hover:scale-105"
+      >
+        Gain Free Access
+      </button>
+      {message && <p className="text-white mt-4">{message}</p>}
+    </form>
         </div>
       </div>
       <div className="flex flex-col items-center md:items-end md:flex-row md:justify-between absolute bottom-0 w-full text-center md:text-right px-8 py-4">

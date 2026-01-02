@@ -61,7 +61,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$29</span> per month
               </p>
-              <button onClick={handleAccessNowClickmillionaireImmigrant} className="px-6 py-2 bg-[#3C3CC8] text-white">
+              <button onClick={handleAccessNowClickmillionaireImmigrant} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -107,12 +107,11 @@ const CommunityComponent = ({ title, subtitle }) => {
                 <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
                   Purpose Mastery
                 </p>
-                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">for teams</p>
               </div>
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$999</span> 
               </p>
-              <button onClick={handleAccessNowClickpurposeMastery} className="px-6 py-2 bg-[#3C3CC8] text-white">
+              <button onClick={handleAccessNowClickpurposeMastery} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -151,7 +150,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$99</span> per call
               </p>
-              <button onClick={handleAccessNowClickoneWithGustav} className="px-6 py-2 bg-[#3C3CC8] text-white">
+              <button onClick={handleAccessNowClickoneWithGustav} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -191,7 +190,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$3,999</span>
               </p>
-              <button onClick={handleAccessNowClickguaranteeLegacy} className="px-6 py-2 bg-[#3C3CC8] text-white">
+              <button onClick={handleAccessNowClickguaranteeLegacy} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>

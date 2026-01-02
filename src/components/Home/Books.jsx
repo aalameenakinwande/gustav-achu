@@ -4,7 +4,7 @@ import Book1 from "../../images/bookImages/Book1.webp";
 
 const Books = () => {
   return (
-    <div className="bg-[#0B1623] py-8 md:py-20 px-4 md:px-0">
+    <div className="bg-black py-8 md:py-20 px-4 md:px-0">
       <h2 className="text-center text-white font-semibold mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
         BOOK
       </h2>
@@ -22,14 +22,16 @@ const Books = () => {
           >
             THE SEEKER
           </h3>
-          <a href="https://www.amazon.com/dp/B0DHZ9D7GC" target="_blank" rel="noopener noreferrer">
-  <button
-    type="button"
-    className="mt-[60px] bg-[#3C3CC8] text-white px-32 py-6 text-xs sm:text-sm rounded-md hover:bg-[#2a2a9e] transition duration-300"
-  >
-    Order Book
-  </button>
+          <a
+  href="https://buy.stripe.com/3cs4hk9uadVy5pe9AL"
+    target="_blank"
+            rel="noopener noreferrer"
+  className="mt-[60px] bg-[#3C3CC8] text-white px-32 py-6 text-xs sm:text-sm rounded-md  duration-300 inline-block text-center transform transition-transform hover:scale-105 "
+>
+ Order Now
 </a>
+
+
 
         </div>
 

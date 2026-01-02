@@ -39,7 +39,10 @@ const Navbar = () => {
     '/learn-more',
     '/store/1',
     '/store/2',
-    '/store/3'
+    '/store/3',
+      '/store/4',
+        '/store/5',
+          '/store/6'
   ].includes(location.pathname);
 
   return (
@@ -56,7 +59,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-10 text-sm 2xl:text-md">
-            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Contact Us", "Community"].map(
+            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Events", "Resource", "Community", "Contact"].map(
               (item) => (
                 <NavLink
                   key={item}
@@ -110,7 +113,7 @@ const Navbar = () => {
             <XIcon className="h-8 w-8" aria-hidden="true" />
           </button>
           <div className="flex flex-col flex-grow items-center space-y-6">
-            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Contact Us", "Community"].map(
+            {["Home", "About", "Work with Gustav", "Podcast", "Store", "Resource", "Events", "Contact", "Community"].map(
               (item) => (
                 <Link
                   key={item}

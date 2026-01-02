@@ -70,7 +70,7 @@ const NewsLetterCta = () => {
             >
               <input
                 type="text"
-                placeholder="First and last name"
+                placeholder="First name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="px-2 py-2 rounded-md text-white w-full lg:w-[150px] border-b-2 border-white bg-transparent text-sm placeholder-white focus:outline-none"
@@ -86,7 +86,7 @@ const NewsLetterCta = () => {
               />
               <button
                 type="submit"
-                className="hover:bg-blue-700 text-white px-24 text-sm lg:px-6 py-2 bg-[#3C3CC8] rounded-md"
+                className="transform transition-transform hover:scale-105  text-white px-24 text-sm lg:px-6 py-2 bg-[#3C3CC8] rounded-md"
               >
                 Gain Free Access
               </button>

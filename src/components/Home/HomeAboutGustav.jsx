@@ -48,7 +48,7 @@ const HomeAboutGustav = () => {
             MEET GUSTAV
           </h3>
           <p className="text-sm md:text-md lg:text-lg leading-relaxed mb-4 md:mb-6">
-            With over 25 years of extensive experience working with national
+          Author of 'The seeker,' his debut book, he brings over 25 years of extensive experience working with national
             leaders, high stake executives, brands, companies in Africa and
             around the world, Gustav has adopted the phrase #YouREnough# to convey
             his belief that anybody can design their life and live purposefully
@@ -69,7 +69,7 @@ const HomeAboutGustav = () => {
           </p>
 
           <Link to="/about">
-            <button className="bg-[#3C3CC8] hover:bg-red-700 text-white py-3 px-6 text-base md:text-sm mt-4 md:mt-8 rounded-md">
+            <button className="bg-[#3C3CC8] hover:bg-red-700 text-white py-3 px-6 text-base md:text-sm mt-4 md:mt-8 rounded-md transform transition-transform hover:scale-105 ">
               Meet Gustav Now
             </button>
           </Link> 
