@@ -22,7 +22,7 @@ const StoreHero = ({ scrollToStoreItem }) => {
         <button
           type="button"
           onClick={scrollToStoreItem} // Scroll to the StoreItem component
-          className="bg-[#3C3CC8] text-white px-8 py-3 text-xs sm:text-xs rounded-md  duration-300 transform transition-transform hover:scale-105 "
+          className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-xs sm:text-xs rounded-md  duration-300 transform transition-transform hover:scale-105 "
         >
           Shop Now
         </button>

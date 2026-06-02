@@ -2,32 +2,32 @@ import React from "react";
 
 const modules = [
   {
-    title: "MODULE 1: Financial Clarity Audit",
-    subtitle: "Where You Are Now vs. Where You Want To Be",
+    title: "Step 1: Know Exactly Where Your Money Is Leaking (and How to Plug the Holes for Good)",
+    subtitle: "Walk away with total financial clarity, zero guesswork, and a clear plan to stop bleeding money every month.",
     points: [
       "Pinpoint your current income, spending habits, and hidden financial roadblocks",
       "Break free from the paycheck-to-paycheck trap and gain control over your money",
       "Visualize your ideal financial picture and uncover what’s possible in the next 90 days",
-      "What's possible in the next 90 days",
     ],
     description:
       "By the end of this module, you’ll feel empowered, in control, and clear on exactly where you stand financially",
   },
+{
+  title: "Step 2: Turn Your Income Into a System That Grows (Even When You’re Not Working)",
+  subtitle: "Learn how to structure your income so your money starts working for you instead of sitting idle.",
+  points: [
+    'Learn how to structure your income using the “50-10-20-20” rule for lasting wealth and maximum growth.',
+    "Master the '20% rule' of investing that helped Gustav turn bankruptcy into a $1,000,000+ portfolio",
+    "Avoid common money mistakes and know exactly where to put your resources first",
+    "Grow wealth strategically, even if you’re starting with less than $500",
+  ],
+  description:
+    "You’ll leave this module confident in your ability to make your income work smarter, not harder.",
+},
+
   {
-    title: "MODULE 2: The Income Structuring & Growth Blueprint",
-    subtitle: "How To Make Your Money Work For You",
-    points: [
-      "Learn how to structure your income for lasting wealth and maximum growth",
-      "Master the “3% rule” that helped Gustav turn bankruptcy into a $1,000,000+ portfolio",
-      "Avoid common money mistakes and know exactly where to put your resources first",
-      "Grow wealth strategically, even if you’re starting with less than $500",
-    ],
-    description:
-      "LYou’ll leave this module confident in your ability to make your income work smarter, not harder.",
-  },
-  {
-    title: "MODULE 3: The Stock Market Strategy For Beginners",
-    subtitle: "Introduction To How to Invest Consistently Without Fear",
+    title: "Step 3: Invest With Confidence—Without Fear, Guessing, or Overwhelm",
+    subtitle: "Understand exactly how the stock market works and how to invest consistently, even as a beginner.",
     points: [
       "Learn how to pick stocks with skill, knowledge, and confidence- including the same simple techniques Gustav uses to evaluate companies you already know and trust",
       "Avoid costly mistakes that can set back your financial goals",
@@ -38,8 +38,8 @@ const modules = [
       "By the end of this module, you’ll feel confident and equipped to start investing wisely and consistently.",
   },
   {
-    title: "MODULE 4: Build Wealth Without Quitting Your 9–5",
-    subtitle: "",
+    title: "Step 4: Build Real Wealth Without Quitting Your 9–5 or Burning Out",
+    subtitle: "Create a practical wealth-building plan that fits your current job, lifestyle, and time constraints.",
     points: [
       "Identify your next income opportunity without risking your paycheck",
       "Discover simple, actionable income streams that don’t require massive capital",
@@ -49,8 +49,8 @@ const modules = [
       "You’ll leave this module with practical strategies to grow your income confidently while maintaining financial security.",
   },
   {
-    title: "MODULE 5: Live Q&A + Accountability Setup",
-    subtitle: "Get Your Questions Answered",
+    title: "Step 5: Get Personalized Answers, Accountability, and a Clear Next-Step Action Plan",
+    subtitle: "Leave with your questions answered, blind spots exposed, and a simple execution plan you can actually follow.",
     points: [
    
     ],
@@ -71,6 +71,18 @@ const SectionEight = () => {
 
         {/* HEADER */}
         <div className="text-center mb-10 sm:mb-14 md:mb-16">
+{/* 
+            <p className="text-base sm:text-lg  text-gray-300 max-w-4xl mx-auto leading-relaxed">
+Most people don’t fail at wealth because they don’t earn enough.
+ They fail because:
+They don’t know what to focus on
+They don’t have a system
+They don’t trust their decisions
+This webinar fixes that—in 90 minutes.
+This keeps emotional momentum high.          </p> */}
+
+
+
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-wide mb-3 sm:mb-4">
             The 90-Minute Live Webinar Breakdown
           </h2>
@@ -111,14 +123,14 @@ const SectionEight = () => {
 
         
   <div className="text-center mt-14">
-          <button
-            onClick={scrollToTickets}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f]
-              text-black font-bold text-base sm:text-lg px-10 py-4 rounded-lg
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.45)]"
-          >
-            Reserve My Seat
-          </button>
+        <button
+  onClick={scrollToTickets}
+  className="bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+  I Want Clarity With My Money
+</button>
+
           <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
               {/* Secure Checkout */}
@@ -139,7 +151,7 @@ const SectionEight = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
+                <span className="text-gray-300 text-xs sm:text-lg">
                   100% Secure Checkout
                 </span>
               </div>
@@ -162,8 +174,8 @@ const SectionEight = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
-7-Day Money-Back Guarantee                </span>
+                <span className="text-gray-300 text-xs sm:text-lg">
+7-Day Money Back Guarantee                </span>
               </div>
 
             </div>

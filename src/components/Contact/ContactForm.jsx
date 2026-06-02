@@ -11,6 +11,7 @@ const ContactForm = () => {
     options: {
       planningEvent: false,
       bookCall: false,
+       quickCall: false,
     },
   });
   const [showPopup, setShowPopup] = useState(false); // To show/hide popup
@@ -49,6 +50,9 @@ const ContactForm = () => {
       return;
     }
   
+
+
+
     // Prepare the data for EmailJS
     const templateParams = {
       to_name: "Recipient Name", // Replace with actual recipient name or make it dynamic
@@ -58,6 +62,7 @@ const ContactForm = () => {
       message: formData.message || "No additional message", // Default message if none provided
       planning_event: formData.options.planningEvent ? "Planning an event" : "",
       book_call: formData.options.bookCall ? "Book a call" : "",
+      quick_call: formData.options.quickCall ? "Have a quick chat with Achu" : "",
     };
   
     emailjs.send('service_t55p22v', 'template_04c4p1x', templateParams, 'UqpL8JHu7-1H90Iga')
@@ -74,6 +79,7 @@ const ContactForm = () => {
           options: {
             planningEvent: false,
             bookCall: false,
+            quickCall: false,
           },
         });
         setShowPopup(true);
@@ -189,6 +195,24 @@ const ContactForm = () => {
             />
             <label htmlFor="bookCall">Book a call</label>
           </div>
+          
+
+
+            <div className="flex items-center mt-3">
+            <input
+              type="checkbox"
+              id="quickCall"
+              name="quickCall"
+              checked={formData.options.quickCall}
+              onChange={handleChange}
+              className="form-checkbox h-4 w-4 text-blue-600 rounded-full mr-2"
+            />
+            <label htmlFor="quickCall">Have a quick chat with Achu</label>
+          </div>
+
+
+
+
         </div>
         <div className="mb-4 mt-8">
           <label htmlFor="message" className="block mb-1">
@@ -206,7 +230,7 @@ const ContactForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 hover:scale-105 transition-transform text-white px-4 py-2 rounded-md "
+          className="w-full bg-red-600 hover:bg-red-700 hover:scale-105 transition-transform text-white px-4 py-2 rounded-md "
         >
           Submit
         </button>

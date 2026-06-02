@@ -40,7 +40,7 @@ const WorkWithGustav = () => {
     <>
     
         <ProgramsHero />
-      <div ref={guaranteeLegacyRef}>
+      {/* <div ref={guaranteeLegacyRef}>
         <WorkWithGustavGuaranteeLegacy />
       </div>
       <div ref={millionaireImmigrantRef}>
@@ -51,8 +51,17 @@ const WorkWithGustav = () => {
       </div>
       <div ref={oneWithGustavRef}>
         <WorkWithGustavOneWithGustav />
-      </div>
-        <Tenets />
+      </div> */}
+
+              <WorkWithGustavOneWithGustav />
+
+        {/* <Tenets /> */}
+
+
+
+
+              {/* <WorkWithGustavOne />  */}
+
 
     </>
   );

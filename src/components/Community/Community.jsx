@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Community = () => {
   const [name, setName] = useState("");
@@ -28,7 +29,6 @@ const Community = () => {
         subscriberData
       );
 
-      console.log(response.data);
       if (response.data.subscription) {
         setMessage("Successfully subscribed! Please check your email.");
         setName("");
@@ -38,112 +38,194 @@ const Community = () => {
         setMessage("Subscription failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error subscribing:", error);
       setMessage("An error occurred. Please try again later.");
     }
-    setTimeout(() => {
-      setMessage("");
-    }, 5000);
+
+    setTimeout(() => setMessage(""), 5000);
   };
 
-
   return (
-    <>
-      <div className="w-full bg-[#181349] mx-auto text-white p-6 md:py-20">
-        <div className="text-center">
-          <h1
-            className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl font-bold text-[#EFE359] mt-36 md:mt-44 lg:mt-44"
-            style={{ fontFamily: "Butler, serif" }}
-          >
-            JOIN THE COMMUNITY
+    <section className="bg-[#0E0E0E] text-white  md:px-16 lg:px-24 py-28 lg:py-44">
+      <div className="max-w-6xl mx-auto">
+
+        {/* HERO */}
+        <div className="text-center max-w-4xl mx-auto px-2">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "Butler, serif" }}>
+            Build Wealth With Clarity. Invest With Confidence. Leave a Lasting Legacy.
           </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold mb-6 md:mb-6" style={{ fontFamily: "Butler, serif" }}>
-            WEEKLY INSIGHTS TO SCALE INVESTMENT, <br />PERSONAL GROWTH AND LEGACY
-          </h2>
-          <p className="text-sm mt-0 lg:mt-8 md:text-md mb-6 lg:max-w-[1800px] mx-auto md:text-md lg:text-xl md:mb-10">
-            Receive free and practical tips to maximize profit-making opportunities, learn how to invest wisely and      <br className="hidden md:block" /> build a legacy that outlives you.
-            Enrich your life from the inside out and level up without leaving your inbox.
+
+          <p className=" md:text-xl text-gray-300 mb-8">
+            Join thousands of professionals receiving practical weekly insights on investing, personal growth, and legacy building—designed to help you create lasting wealth without confusion, guesswork, or costly financial mistakes.
           </p>
 
-          {message && (
-            <div className="fixed top-0 left-0 w-full bg-blue-600 text-white text-center py-4 z-50">
-              {message}
-            </div>
-          )}
+          <p className="text-sm uppercase tracking-widest text-[#BD9A35] mb-6">
+            Trusted by Professionals Across the U.S., Canada & Africa
+          </p>
 
-          <form
-            onSubmit={handleSubmit}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="flex flex-col md:flex-row justify-between mb-6 md:mb-10">
-              <div className="w-full md:w-1/2 md:pr-2 mb-4 md:mb-0">
-                <label
-                  htmlFor="name"
-                  className="block text-left text-sm font-medium mb-1"
-                >
-                  Name*
-                </label>
+          <p className="text-gray-400 mb-12">
+            Clear strategies. Practical execution. Real wealth-building principles that help you grow financially, professionally, and personally.
+          </p>
+        </div>
+
+        {/* FORM + VALUE */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start px-6">
+
+          {/* LEFT */}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Get Your Weekly Wealth Insights
+            </h2>
+
+            <p className="mb-6 text-gray-300">
+              Receive actionable lessons every week on:
+            </p>
+
+            <ul className="space-y-3 text-gray-300 mb-10">
+              <li>✔ Smart investing and stock market wealth-building strategies</li>
+              <li>✔ Financial clarity and long-term wealth preservation</li>
+              <li>✔ Legacy planning for family and future generations</li>
+              <li>✔ Real-world case studies and practical money frameworks</li>
+              <li>✔ Private insights and exclusive updates from Gustav</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold mb-4">
+              Enter Your Details Below
+            </h3>
+
+            {message && (
+              <div className="fixed top-0 left-0 w-full bg-blue-600 text-white text-center py-3 z-50">
+                {message}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="text-sm block mb-1">First Name*</label>
                 <input
                   type="text"
-                  id="name"
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full p-2 border border-gray-300 text-gray-900 bg-white"
                   required
+                  className="w-full p-3 bg-white text-black"
                 />
               </div>
-              <div className="w-full md:w-1/2 md:pl-2">
-                <label
-                  htmlFor="email"
-                  className="block text-left text-sm font-medium mb-1"
-                >
-                  Email*
-                </label>
+
+              <div>
+                <label className="text-sm block mb-1">Email Address*</label>
                 <input
                   type="email"
-                  id="email"
                   placeholder="email@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-2 border border-gray-300 text-gray-900 bg-white"
                   required
+                  className="w-full p-3 bg-white text-black"
                 />
               </div>
-            </div>
-            <div className="w-full lg:w-80 mx-auto mb-6 md:mb-10">
-              <label
-                htmlFor="phone"
-                className="block text-left text-sm font-medium mb-1"
-              >
-                Phone Number*
-              </label>
-              <input
-        type="tel"
-        placeholder="Your phone number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="p-2 w-full lg:w-80 border border-gray-300 text-gray-900 bg-white"
-      />
-            </div>
-            <button
-              type="submit"
-              className="bg-[#3C3CC8] mt-0 lg:mt-0 md:mb-10 text-white py-2 lg:py-4 px-4 w-64 text-sm lg:text-md font-semibold transform transition-transform hover:scale-105 rounded-md"
-            >
-              Join the Newsletter
-            </button>
-          </form>
 
-          <p className="mt-8 text-gray-500 text-sm">
-            A weekly digest of case studies, book reviews and other useful resources to help you scale up your business
-          </p>
+              <div>
+                <label className="text-sm block mb-1">Phone number</label>
+                <input
+                  type="tel"
+                  placeholder="Your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full p-3 bg-white text-black"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#BD9A35] hover:bg-[#a8872f] py-4 font-semibold transition"
+              >
+                I Want Weekly Wealth Insights
+              </button>
+            </form>
+
+            {/* WHATSAPP */}
+            <div className="mt-10 text-center">
+              <p className="mb-4">
+                <FaWhatsapp className="inline mr-2 text-green-500 text-xl" />
+                Join Private WhatsApp Community
+              </p>
+
+              <p className="text-gray-400 mb-4">
+                Connect with professionals, investors, and entrepreneurs focused on building wealth, making better financial decisions, and creating generational impact.
+              </p>
+
+              <a
+                href="https://chat.whatsapp.com/E1THU5dlbW05lCqVnYQHd9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-600 hover:bg-green-700 px-6 py-3 font-semibold"
+              >
+                Join the Legacy Circle Community
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT STORY */}
+          <div className="space-y-10 text-gray-300">
+            <div>
+                <h3 className="text-xl font-bold text-white mb-4">
+Join the Legacy Circle Community
+              </h3>
+              <p className="mb-4">Most people work for money.</p>
+              <p className="mb-4">Few learn how to make money work for them.</p>
+              <p className="mb-4">
+                True wealth is not just about income—it is about clarity, strategy, ownership, and building something that outlives you.
+              </p>
+              <p className="mb-4">
+                This weekly letter helps you move from financial uncertainty to intentional wealth creation.
+              </p>
+              <p className="mb-4">
+                Because your success should not stop with you.
+              </p>
+              <p>It should become your legacy.</p>
+            </div>
+
+            <div className="border-t border-gray-700 pt-6">
+              <h3 className="text-xl font-bold text-white mb-4">
+                A Message From Gustav B. Achu
+              </h3>
+
+              <p className="mb-4">
+                For years, I have worked with professionals, entrepreneurs, and families who wanted more than financial survival—they wanted clarity.
+              </p>
+              <p className="mb-4">Clarity on how to invest wisely.</p>
+              <p className="mb-4">Clarity on how to structure wealth intentionally.</p>
+              <p className="mb-4">
+                Clarity on how to create a legacy that impacts generations.
+              </p>
+              <p className="mb-4">
+                This platform was built to provide practical guidance that helps you think differently about money, wealth, and purpose.
+              </p>
+              <p className="mb-4">Not hype.</p>
+              <p className="mb-4">Not noise.</p>
+              <p className="mb-4">Just real strategies for real results.</p>
+              <p>
+                If that is what you are looking for, you are in the right place.
+              </p>
+            </div>
+
+            <div className="border-t border-gray-700 pt-6 text-sm text-gray-400">
+
+                <h3 className="text-xl font-bold text-white mb-4">
+Next Weekly Edition Goes Out Tuesday 8AM CS              </h3>
+
+
+  <h3 className="text-xl font-bold text-white mb-4">
+                Your future wealth is built by the decisions you make today.
+          </h3>
+
+
+
+            </div>
+          </div>
+
         </div>
       </div>
-      <div className="bg-[#E2D654] w-full py-3">
-        <div className="max-w-[1600px] mx-auto lg:-mt-38 sm:px-6">
-        </div>
-      </div>
-    </>
+    </section>
   );
 };
 

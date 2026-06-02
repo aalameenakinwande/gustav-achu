@@ -186,7 +186,7 @@ const Footer = () => {
             </div>
           )}
 
-          <h1
+          {/* <h1
             className="text-4xl mb-5 md:mb-0 sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#EFE359] lg:mb-10"
             style={{ fontFamily: "Butler, serif" }}
           >
@@ -198,7 +198,7 @@ const Footer = () => {
             design the legacy they desire. Gustav will reach you directly every
             week (you’ll achieve what most people only dream about
             all their lives).
-          </p>
+          </p> */}
           <form onSubmit={handleSubmit} className="mb-4">
       <input
         type="text"
@@ -243,11 +243,17 @@ const Footer = () => {
     powered by KICK&CO SYNERGY LTD
   </a>
 </p>
-
-        <div className="flex justify-center space-x-3 text-sm">
-          <p>Privacy Policy</p>
-          <p>Terms of Use</p>
-        </div>
+<div className="flex justify-center space-x-3 text-sm">
+  <a href="/privacy-policy" className="hover:underline">
+    Privacy Policy
+  </a>
+  <a href="/terms-of-use" className="hover:underline">
+    Terms of Use
+  </a>
+  <a href="/refund-policy" className="hover:underline">
+    Refund Policy
+  </a>
+</div>
       </div>
     </footer>
   );

@@ -44,37 +44,35 @@ const SectionSixteen = () => {
           </div>
 
           {/* Refund Policy */}
-          <div className="bg-[#181349] rounded-3xl shadow-lg p-6 sm:p-8 flex flex-col items-start space-y-4 hover:shadow-2xl hover:scale-105 transition-transform duration-300">
-            <AiOutlineDollar className="text-[#BD9A35] w-10 h-10 sm:w-12 sm:h-12" />
+         <div className="bg-[#181349] rounded-3xl shadow-lg p-6 sm:p-8 flex flex-col items-start space-y-4 hover:shadow-2xl hover:scale-105 transition-transform duration-300">
+  <AiOutlineDollar className="text-[#BD9A35] w-10 h-10 sm:w-12 sm:h-12" />
 
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#BD9A35] border-b border-[#BD9A35] pb-2">
-              Webinar Refund Policy
-            </h3>
+  <h3 className="text-xl sm:text-2xl font-semibold text-[#BD9A35] border-b border-[#BD9A35] pb-2">
+    Webinar Refund Policy
+  </h3>
 
-            <p className="text-gray-200 font-semibold text-sm sm:text-base">
-              General Admission & VIP Experience ($97 / $197)
-            </p>
+  <p className="text-gray-200 font-semibold text-sm sm:text-base">
+    7-Day Money Back Guarantee
+  </p>
 
-            <p className="text-gray-200 font-semibold text-sm sm:text-base">
-              30-Day Money-Back Guarantee
-            </p>
+  <p className="text-gray-200 text-sm sm:text-base">
+    If after participating you don’t gain clarity on where you stand financially and don’t walk away with a clear 90-day wealth plan you can execute, simply email our support team within 7 days of the event and we’ll issue a full refund.
+  </p>
 
-            <p className="text-gray-200 text-sm sm:text-base">
-              If you attend the live webinar and feel like you didn’t receive the value promised, simply email{" "}
-              <span className="font-semibold">gustav@gustavachu.com</span> or{" "}
-              <span className="font-semibold">management@gustavachu.com</span>{" "}
-              within 30 days with:
-            </p>
+  <p className="text-gray-200 text-sm sm:text-base">
+    This workshop is designed to give you clarity, structure, and direction — not hype.  
+    If it doesn’t do that for you, you shouldn’t pay for it.
+  </p>
 
-            <ul className="list-disc list-inside text-gray-200 text-sm sm:text-base space-y-1">
-              <li>Proof that you attended and applied the framework</li>
-              <li>A brief explanation of why it didn’t meet your expectations</li>
-            </ul>
+  <p className="text-gray-200 text-sm sm:text-base font-semibold">
+    We ask that you participate in the training before requesting a refund.
+  </p>
 
-            <p className="text-gray-200 text-sm sm:text-base font-semibold">
-              We’ll issue a full refund — no questions asked.
-            </p>
-          </div>
+  <p className="text-gray-200 text-sm sm:text-base">
+    <span className="font-semibold">VIP Ticket:</span> Includes extended clarity support and priority Q&A, significantly reducing the likelihood you’ll need a refund.
+  </p>
+</div>
+
 
           {/* Why Guarantee */}
           <div className="bg-[#181349] rounded-3xl shadow-lg p-6 sm:p-8 flex flex-col items-start space-y-4 hover:shadow-2xl hover:scale-105 transition-transform duration-300">
@@ -107,18 +105,17 @@ const SectionSixteen = () => {
 
         {/* CTA */}
         <div className="text-center mt-10 sm:mt-16">
-          <button
-            onClick={() => {
-              document
-                .getElementById("tickets-section")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f] 
-              text-black font-bold text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 rounded-lg 
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.4)]"
-          >
-            Register For The Webinar
-          </button>
+        <button
+  onClick={() => {
+    document
+      .getElementById("tickets-section")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+  I Want Clarity With My Money
+</button>
 
           <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
@@ -138,7 +135,7 @@ const SectionSixteen = () => {
                   d="M12 11c.828 0 1.5.672 1.5 1.5v3a1.5 1.5 0 11-3 0v-3c0-.828.672-1.5 1.5-1.5zm6-2h-1V7a5 5 0 00-10 0v2H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2zm-3 0H9V7a3 3 0 016 0v2z"
                 />
               </svg>
-              <span className="text-gray-300 text-xs sm:text-sm">
+              <span className="text-gray-300 text-xs sm:text-lg">
                 100% Secure Checkout
               </span>
             </div>
@@ -159,8 +156,8 @@ const SectionSixteen = () => {
                   d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v-2m9-4a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span className="text-gray-300 text-xs sm:text-sm">
-                30-Day Money-Back Guarantee
+              <span className="text-gray-300 text-xs sm:text-lg">
+                7-Day Money Back Guarantee
               </span>
             </div>
 

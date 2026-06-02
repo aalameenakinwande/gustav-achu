@@ -14,13 +14,13 @@ const SectionFourandFive = () => {
       <div className="max-w-[1200px] mx-auto mb-24">
 
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-5xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#BD9A35] mb-6">
             The Transformation You Will Experience
           </h2>
           <p className="text-gray-300 text-base sm:text-lg">
             By the end of this <span className="text-white font-semibold">90-minute live webinar</span>,  
-            you will walk away with clarity, structure, and a clear path forward.
+            you will walk away with clarity, structure, and a repeatable system to grow and protect your money.
           </p>
         </div>
 
@@ -50,14 +50,14 @@ const SectionFourandFive = () => {
 
         {/* CTA */}
         <div className="text-center mt-14">
-          <button
-            onClick={scrollToTickets}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f]
-              text-black font-bold text-base sm:text-lg px-10 py-4 rounded-lg
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.45)]"
-          >
-            Reserve My Seat
-          </button>
+         <button
+  onClick={scrollToTickets}
+  className="bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+ I Want Clarity With My Money
+</button>
+
           <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
               {/* Secure Checkout */}
@@ -78,7 +78,7 @@ const SectionFourandFive = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
+                <span className="text-gray-300 text-xs sm:text-lg">
                   100% Secure Checkout
                 </span>
               </div>
@@ -101,8 +101,8 @@ const SectionFourandFive = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
-7-Day Money-Back Guarantee                </span>
+                <span className="text-gray-300 text-xs sm:text-lg">
+7-Day Money Back Guarantee                </span>
               </div>
 
             </div>
@@ -125,7 +125,7 @@ const SectionFourandFive = () => {
         {/* Audience Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {[
-            "Mid- & High-Income Professionals who want their money to work harder",
+            "High-performing professionals ready to move from survival to wealth.",
             "First- & Second-Generation Immigrants building wealth at home or abroad",
             "Entrepreneurs & Side Hustlers ready to scale income strategically",
             "Families & Legacy Builders planning long-term financial impact",
@@ -151,30 +151,41 @@ const SectionFourandFive = () => {
 
         {/* CTA + Trust Signals */}
         <div className="text-center">
-          <button
-            onClick={scrollToTickets}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f]
-              text-black font-bold text-base sm:text-lg px-10 py-4 rounded-lg
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.45)]"
-          >
-            Reserve My Seat
-          </button>
+        <button
+  onClick={scrollToTickets}
+  className="bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+ I Want Clarity With My Money
+</button>
+
 
           <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
             <div className="flex items-center gap-2">
               <span className="text-[#E6C677]">🔒</span>
-              <span className="text-gray-300 text-xs sm:text-sm">
+              <span className="text-gray-300 text-xs sm:text-lg">
                 100% Secure Checkout
               </span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[#E6C677]">💰</span>
-              <span className="text-gray-300 text-xs sm:text-sm">
-                7-Day Money-Back Guarantee
+              <span className="text-gray-300 text-xs sm:text-lg">
+                7-Day Money Back Guarantee
               </span>
             </div>
           </div>
         </div>
+
+        
+        <p className="text-center text-gray-300 text-base sm:text-lg max-w-4xl mx-auto mb-14 leading-relaxed mt-6">
+Most people don’t fail at wealth because they don’t earn enough.
+ They fail because:
+They don’t know what to focus on
+They don’t have a system
+They don’t trust their decisions
+This webinar fixes that—in 90 minutes.
+This keeps emotional momentum high.          </p>
+
       </div>
     </section>
   );

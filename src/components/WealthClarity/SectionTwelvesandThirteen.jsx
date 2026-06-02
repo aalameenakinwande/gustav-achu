@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderImage from '../../images/gustavImages/WorkGustav.jpg';
+import HeaderImage from '../../images/gustavImages/EventGustav.webp';
 
 
 const SectionTwelvesandThirteen = () => {
@@ -31,19 +31,18 @@ const SectionTwelvesandThirteen = () => {
             <li>Started as a Nursing Assistant in Minnesota</li>
             <li>Became a Licensed Practical Nurse and saved $90,000</li>
             <li>Went to UC Berkeley for International Business & Marketing</li>
-            <li>Lost everything doing business in Africa, had to foreclose on two homes, filed for bankruptcy, and shopped at thrift stores for 3–4 years</li>
+            <li>Lost everything doing business in Africa, had to foreclose on two homes, filed for bankruptcy, paying $100,000 to debtors, and shopped at thrift stores for 4 years.</li>
             <li>Made a decision: "This is the last time any circumstance will meet me in life unprepared."</li>
           </ul>
 
           <p className="text-base sm:text-lg md:text-lg leading-relaxed text-gray-300 mt-2 sm:mt-4">
-            That's when everything changed. Gustav started with 3% of his paycheck going into his 401(k), educated himself, listened to financial experts, made mistakes, and developed a simple strategy.
-          </p>
+That’s when everything changed. Gustav started by committing 20% of his paycheck to his 401(k). He invested in his education- paying for webinars, courses, and mentors- made mistakes, and learned the hard way. Today, he helps clients avoid those same costly lessons using a simple, repeatable wealth-building strategy.          </p>
 
           <div className="mt-4 sm:mt-6 space-y-2">
             <h4 className="text-lg sm:text-xl md:text-xl font-semibold text-[#BD9A35]">Today, Gustav has:</h4>
             <ul className="space-y-1 sm:space-y-2 text-gray-300 text-sm sm:text-base md:text-base">
               <li>✔️ Built a portfolio worth over $1,000,000</li>
-              <li>✔️ Helped dozens of clients gain financial clarity and start building wealth</li>
+              <li>✔️ Helped hundreds of clients gain financial clarity and start building wealth</li>
               <li>✔️ Proven that regular people can build wealth without quitting their 9–5</li>
             </ul>
           </div>
@@ -83,14 +82,15 @@ const SectionTwelvesandThirteen = () => {
     </ul>
   </div>
    <div className="text-center mt-14">
-          <button
-            onClick={scrollToTickets}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f]
-              text-black font-bold text-base sm:text-lg px-10 py-4 rounded-lg
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.45)]"
-          >
-            Reserve My Seat
-          </button>
+         <button
+  onClick={scrollToTickets}
+  className="
+   bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+  I Want Clarity With My Money
+</button>
+
           <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
               {/* Secure Checkout */}
@@ -111,7 +111,7 @@ const SectionTwelvesandThirteen = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
+                <span className="text-gray-300 text-xs sm:text-lg">
                   100% Secure Checkout
                 </span>
               </div>
@@ -134,8 +134,8 @@ const SectionTwelvesandThirteen = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
-7-Day Money-Back Guarantee                </span>
+                <span className="text-gray-300 text-xs sm:text-lg">
+7-Day Money Back Guarantee                </span>
               </div>
 
             </div>
@@ -154,7 +154,7 @@ const SectionTwelvesandThirteen = () => {
         <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#BD9A35]">
           THIS IS NOT JUST ANOTHER WEBINAR
         </h2>
-        <h3 className="text-2xl sm:text-3xl md:text-3xl font-semibold">A New Kind Of Training</h3>
+        {/* <h3 className="text-2xl sm:text-3xl md:text-3xl font-semibold">A New Kind Of Training</h3> */}
         <p className="text-base sm:text-lg md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
           I know what you're probably thinking: "Oh brother, not another financial webinar that overpromises and underdelivers!"
         </p>
@@ -172,18 +172,20 @@ const SectionTwelvesandThirteen = () => {
         </div>
 
            <div className="text-center mt-10 sm:mt-16">
-       <button
+   <button
   onClick={() => {
     document
       .getElementById("tickets-section")
       ?.scrollIntoView({ behavior: "smooth" });
   }}
-  className="inline-block bg-[#BD9A35] hover:bg-[#a9872f] 
-    text-black font-bold text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 rounded-lg 
-    transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.4)]"
+  className="
+  bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
 >
-            Register For The Webinar
-</button>
+  I Want Clarity With My Money
+ 
+ </button>
+
 <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
               {/* Secure Checkout */}
@@ -204,7 +206,7 @@ const SectionTwelvesandThirteen = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
+                <span className="text-gray-300 text-xs sm:text-lg">
                   100% Secure Checkout
                 </span>
               </div>
@@ -227,8 +229,8 @@ const SectionTwelvesandThirteen = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
-7-Day Money-Back Guarantee                </span>
+                <span className="text-gray-300 text-xs sm:text-lg">
+7-Day Money Back Guarantee                </span>
               </div>
 
             </div>

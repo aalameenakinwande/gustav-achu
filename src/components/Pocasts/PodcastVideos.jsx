@@ -2,7 +2,87 @@ import React, { useState } from "react";
 import PodcastImage from "../../images/YoutubeImages/PoscastImage.webp";
 
 const podcastData = [
-      {
+    
+    {
+    episode: 24,
+    author: "Money Experts: #1 Formula to Get Rich off Your Normal Salary| Ep24",
+    date: "03/03/2026",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=6DvMQUfCOuc",
+  },
+
+    {
+    episode: 23,
+    author: "Why High Earners Stay Broke (And How This Millionaire Escaped the 9–5 rat race)| Ep23",
+    date: "03/01/2026",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=ywy4WTt_elM",
+  },
+
+    {
+    episode: 22,
+    author: "MHow JJ Vikings Became the Youngest NFL Analyst on YouTube| Ep22",
+    date: "20/01/2026",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=aOzLG7ddeKw",
+  },
+
+    {
+    episode: 21,
+    author: "Money and Marriage Truths No One Talks About| Ep21",
+    date: "06/01/2026",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=grdUGrzT67k",
+  },
+
+    {
+    episode: 20,
+    author: "Investing Expert: If I started Investing In 2026, This is What I would Do| Ep20",
+    date: "16/12/2025",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=tQNhOi6kY9A",
+  },
+
+    {
+    episode: 19,
+    author: "Build the Mental Habits of the Wealthy| Ep19",
+    date: "2/12/2025",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=Hsud_W4Sk_c",
+  },
+
+    {
+    episode: 18,
+    author: "The AI Bubble is About to Burst? How to Protect Yourself| Ep18",
+    date: "18/11/2025",
+    image: PodcastImage,
+    link: "https://www.youtube.com/watch?v=yQkHok2iqzY",
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {
     episode: 17,
     author: "Money Experts: #1 Formula to Get Rich off Your Normal Salary| Ep17",
     date: "28/10/2025",

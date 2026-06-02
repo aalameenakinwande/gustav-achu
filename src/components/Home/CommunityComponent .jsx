@@ -33,12 +33,12 @@ const CommunityComponent = ({ title, subtitle }) => {
   return (
     <div className="max-w-full mx-auto px-0 md:px-0">
       <h2
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 font-bold text-center mt-7 md:mt-20"
+        className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 font-bold text-center mt-7 md:mt-20"
         style={{ fontFamily: "Butler, serif", color: "#0B1623" }}
       >
         {title}
       </h2>
-      <p className="mt-4 text-base sm:text-lg md:text-xl lg:text-2xl text-center max-w-xs sm:max-w-sm md:max-w-2xl mx-auto">
+      <p className="mt-4 text-sm sm:text-md md:text-md lg:text-lg text-center max-w-xs sm:max-w-sm md:max-w-5xl mx-auto">
         {subtitle}
       </p>
 
@@ -61,7 +61,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$29</span> per month
               </p>
-              <button onClick={handleAccessNowClickmillionaireImmigrant} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
+              <button onClick={handleAccessNowClickmillionaireImmigrant} className="px-6 py-2 lg:py-3 font-semibold text-sm md:text-md bg-[#3C3CC8] rounded-xl text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -111,7 +111,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$999</span> 
               </p>
-              <button onClick={handleAccessNowClickpurposeMastery} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
+              <button onClick={handleAccessNowClickpurposeMastery} className="px-6 py-2 lg:py-3 text-sm md:text-md  font-semibold bg-[#3C3CC8] rounded-xl text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -150,7 +150,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$99</span> per call
               </p>
-              <button onClick={handleAccessNowClickoneWithGustav} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
+              <button onClick={handleAccessNowClickoneWithGustav} className="px-6 py-2 lg:py-3  font-semibold text-sm md:text-md bg-[#3C3CC8] rounded-xl text-white transform transition-transform hover:scale-105 ">
       Access Now
     </button>
             </div>
@@ -190,7 +190,7 @@ const CommunityComponent = ({ title, subtitle }) => {
               <p className="mt-3 sm:mt-5 mb-2 text-base sm:text-lg font-light text-[#BBEEFF]">
                 <span className="mt-1 text-xl sm:text-2xl md:text-3xl">$3,999</span>
               </p>
-              <button onClick={handleAccessNowClickguaranteeLegacy} className="px-6 py-2 bg-[#3C3CC8] text-white transform transition-transform hover:scale-105 ">
+              <button onClick={handleAccessNowClickguaranteeLegacy} className="px-6 py-2 lg:py-3  font-semibold text-sm md:text-md bg-[#3C3CC8] text-white transform transition-transform rounded-xl hover:scale-105 ">
       Access Now
     </button>
             </div>

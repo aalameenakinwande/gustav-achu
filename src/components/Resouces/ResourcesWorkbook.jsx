@@ -40,7 +40,7 @@ const resources = [
   },
 ];
 
-const ResourcesWorkbook = () => {
+const   ResourcesWorkbook = () => {
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);

@@ -11,22 +11,24 @@ import SectionFourteen from "./SectionFourteen";
 import SectionFifteen from "./SectionFifteen";
 import SectionSixteen from "./SectionSixteen";
 import SectionHead from "./SectionHead";
+import SectionSeventeen from "./SectionSeventeen";
 
 const WealthClarity = () => {
   return (
     <>
-    <SectionHead />
+      <SectionHead />
       <SectionOne />
-      <SectionTwoandThree />
-      <SectionFourandFive />
+      <SectionTwoandThree /> 
       <SectionSixandSeven />
+      <SectionFourandFive />
       <SectionEight />
-      <SectionNine  />
+      <SectionNine />
       <SectionTenandEleven />
       <SectionTwelvesandThirteen />
       <SectionFourteen />
       <SectionFifteen />
-      <SectionSixteen   />
+      <SectionSixteen />
+      {/* <SectionSeventeen /> */}
     </>
   );
 };

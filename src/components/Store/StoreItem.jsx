@@ -6,6 +6,10 @@ import CapMug from '../../images/StoreImages/blackbluecup.webp';
 import Book1 from "../../images/bookImages/Book1.webp";
 import WorkBookImageOne from "../../images/workbookImages/WorkBookImage.png";
 import MediocreShirt from '../../images/StoreImages/shirt5.jpg';
+import WealthArchitectPlaybook from '../../images/StoreImages/WealthArchitectPlaybook.png';
+
+
+
 
 const items = [
   {
@@ -43,6 +47,12 @@ const items = [
     name: 'How to Pivot and Reinvent Your Life After Devastating Life-Altering Crisis',
     price: '$7.00',
     imageUrl: WorkBookImageOne
+  },
+   {
+    id: 7,
+    name: 'Wealth Architect Playbook',
+    price: '$9.99',
+    imageUrl: WealthArchitectPlaybook
   },
 ];
 

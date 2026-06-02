@@ -62,10 +62,26 @@ export default function EventsHero() {
 
   return (
     <section className="bg-black text-white py-10 lg:py-20 px-4 md:px-10 relative">
-      <div className="max-w-6xl mx-auto text-center space-y-6 mt-28 lg:mt-16">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl  font-bold leading-tight" data-aos="fade-up">
-          DESIGN YOUR LIFE AND<br />
-          LEGACY PURPOSEFULLY
+      <div className="max-w-7xl mx-auto text-center space-y-6 mt-28 lg:mt-16">
+        <h1 className="text-3xl lg:text-5xl  font-bold leading-tight" data-aos="fade-up">
+      From 
+      
+      
+      
+        
+  Bankruptcy to a  {""}
+  
+  
+        <span className="text-[#D7CC50]" style={{ fontFamily: "Butler, serif" }}>
+
+
+
+$1,000,000+ Portfolio –
+</span>     
+        
+         {" "}
+        
+       Learn How to Make Your Money Work Harder for You 
         </h1>
 
       
@@ -85,26 +101,73 @@ export default function EventsHero() {
   </div>
 </div>
 
-<p className="text-sm lg:text-lg 2xl:text-xl text-gray-200 pt-10" data-aos="fade-up">
-          Gustav works with entrepreneurs, brands, businesses and athletes to intentionally create their ideal ecosystem and design how they will be remembered.
-        </p>
+<p className="max-w-6xl mx-auto text-sm lg:text-lg 2xl:text-xl text-gray-200 pt-10" data-aos="fade-up">
+Gustav B. Achu helps mid- and high-income professionals, first- and second-generation immigrants, entrepreneurs/side hustlers, and families stop guessing and start building lasting wealth with a clear, repeatable system to grow and protect your money.       </p>
 
 
         <div className="mt-20 lg:mt-10 pt-5 lg:pt-10 flex flex-col md:flex-row justify-center gap-6 lg:gap-16 w-full px-4 md:px-0" data-aos="fade-up">
-    <button
-        onClick={() => navigate("/community")}
-        className="w-full md:w-auto bg-[#3C3CC8] text-white py-3 px-16 text-sm md:text-base lg:text-lg font-semibold transition-transform hover:scale-105 rounded-md shadow-md flex items-center justify-center"
-      >
-        Join Community
-      </button>
+<button
+  onClick={() =>
+    window.open("https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03", "_blank")
+  }
+  className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white py-3 px-16 lg:px-20 lg:py-6 text-sm md:text-base lg:text-lg xl:text-2xl font-semibold transition-transform hover:scale-105 rounded-md shadow-md flex items-center justify-center"
+>
+  Book Your 60-Min Wealth Consultation – $499
+</button>
 
-      {/* <button
-        onClick={() => navigate("/events")}
-        className="w-full md:w-auto bg-[#3C3CC8] text-white py-3 px-16 text-sm md:text-base lg:text-lg font-semibold transition-transform hover:scale-105 rounded-md shadow-md flex items-center justify-center"
-      >
-    Join Live Event -  August 2nd, 2025
-      </button> */}
+    
     </div>
+
+    {/* What Happens In This Session */}
+<div className="mt-10 max-w-4xl mx-auto bg-gradient-to-b from-[#0f0f0f] to-[#070707] border border-[#1f1f1f] rounded-xl p-8 shadow-xl">
+
+  <h3 className="text-xl lg:text-2xl font-bold text-[#D7CC50] text-center mb-6">
+    What Happens In This Session
+  </h3>
+
+  <div className="grid md:grid-cols-2 gap-6 text-sm lg:text-base text-gray-200">
+
+    <div className="flex items-start gap-3">
+      <span className="text-[#D7CC50] text-lg">✔</span>
+      <p>
+        <span className="font-semibold text-white">
+          Structured financial architecture diagnostic —
+        </span>{" "}
+        not a generic coaching call
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-[#D7CC50] text-lg">✔</span>
+      <p>
+        Review your <span className="font-semibold text-white">capital structure, portfolio positioning</span> and investment strategy.
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-[#D7CC50] text-lg">✔</span>
+      <p>
+        Identify <span className="font-semibold text-white">risk gaps, inefficiencies</span>, and future positioning (including AI exposure).
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-[#D7CC50] text-lg">✔</span>
+      <p>
+        Session fee <span className="font-semibold text-white">credited toward implementation</span> if we decide to work together.
+      </p>
+    </div>
+
+    {/* Center item */}
+    <div className="flex items-start justify-center gap-3 md:col-span-2 text-center">
+      <span className="text-[#D7CC50] text-lg">✔</span>
+      <p>
+        Get a <span className="font-semibold text-white">clear, actionable roadmap</span> in just 60 minutes.
+      </p>
+    </div>
+
+  </div>
+</div>
 
        
       </div>

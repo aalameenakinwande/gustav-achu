@@ -58,7 +58,8 @@ const Navbar = () => {
               <img src={logo} alt="Brand Logo" className="h-16 w-auto" />
             </Link>
           </div>
-          <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-10 text-sm 2xl:text-md">
+          {/* <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-10 text-sm 2xl:text-md">
+
             {["Home", "About", "Work with Gustav", "Podcast", "Store", "Events", "Resource", "Community", "Contact"].map(
               (item) => (
                 <NavLink
@@ -73,16 +74,49 @@ const Navbar = () => {
                 </NavLink>
               )
             )}
-          </div>
+          </div> */}
+
+          <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-10 text-sm 2xl:text-md">
+  {[
+    "Home",
+    "About",
+    // "Work with Gustav",
+    "Podcast",
+    "Store",
+    "Events",
+    "Resource",
+    "Community",
+    "Contact",
+  ].map((item) => {
+    // Override path for special cases
+    let path = "/";
+    if (item === "Home") path = "/";
+    else if (item === "Events") path = "/wealth-clarity";
+    else path = `/${item.toLowerCase().replace(/\s+/g, "-")}`;
+
+    return (
+      <NavLink
+        key={item}
+        to={path}
+        className="nav-link relative"
+        activeClassName="active"
+        onClick={() => handleClick(path)}
+      >
+        {item}
+        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#BD9A35] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </NavLink>
+    );
+  })}
+</div>
+
           <div className="hidden lg:block">
             <a
-              href="https://calendly.com/gustavachu77/stage-discovery-meeting"
+              href="https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#F3F3F3] text-sm 2xl:text-md bg-opacity-20 text-white px-6 lg:px-8 py-2 rounded-md hover:bg-white hover:text-black transition duration-300 font-semibold"
+              className="bg-red-600 border hover:bg-red-700 border-red-600   text-sm 2xl:text-md bg-opacity-20 text-white px-6 lg:px-8 py-2 rounded-md  hover:text-white transition duration-300 font-semibold"
             >
-              Book Gustav to speak
-            </a>
+Book your 60-Min Wealth Consultation            </a>
           </div>
           <div className="lg:hidden flex items-center">
             <button
@@ -112,7 +146,7 @@ const Navbar = () => {
           >
             <XIcon className="h-8 w-8" aria-hidden="true" />
           </button>
-          <div className="flex flex-col flex-grow items-center space-y-6">
+          {/* <div className="flex flex-col flex-grow items-center space-y-6">
             {["Home", "About", "Work with Gustav", "Podcast", "Store", "Resource", "Events", "Contact", "Community"].map(
               (item) => (
                 <Link
@@ -126,7 +160,7 @@ const Navbar = () => {
               )
             )}
             <a
-              href="https://calendly.com/gustavachu77/stage-discovery-meeting"
+              href="https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-white mt-auto bg-[#3C3CC8] hover:bg-blue-700 text-center py-2 rounded-md"
@@ -134,7 +168,46 @@ const Navbar = () => {
             >
               Book Gustav to speak
             </a>
-          </div>
+          </div> */}
+
+
+          <div className="flex flex-col flex-grow items-center space-y-6">
+  {[
+    "Home",
+    "About",
+    // "Work with Gustav",
+    "Podcast",
+    "Store",
+    "Resource",
+    "Events",
+    "Contact",
+    "Community",
+  ].map((item) => {
+    // Override path for special cases
+    let path = item === "Home" ? "/" : item === "Events" ? "/wealth-clarity" : `/${item.toLowerCase().replace(/\s+/g, "-")}`;
+
+    return (
+      <Link
+        key={item}
+        to={path}
+        className="text-white block text-center px-3 py-2 rounded-md text-lg font-medium border-b border-[#BD9A35]"
+        onClick={closeMenu}
+      >
+        {item}
+      </Link>
+    );
+  })}
+
+  <a
+    href="https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block w-full text-white mt-auto bg-red-600 border hover:bg-red-700 text-center py-2 rounded-md"
+    onClick={closeMenu}
+  >
+Book your 60-Min Wealth Consultation  </a>
+</div>
+
         </div>
       </div>
     </nav>

@@ -35,26 +35,7 @@ const Books = () => {
 
         </div>
 
-        {/* <div className="flex-1 bg-[#181349] text-center p-6 md:p-8 rounded-lg shadow-lg w-full max-w-md">
-          <img
-            src={Book2}
-            alt="Settling In"
-            className="w-full h-auto rounded-md mb-4"
-            loading="lazy"
-          />
-          <h3
-            className="mb-4 text-3xl sm:text-3xl md:text-4xl font-bold text-[#EFE359]"
-            style={{ fontFamily: "Butler, serif" }}
-          >
-            SETTLING IN
-          </h3>
-          <button
-            type="button"
-            className="mt-[60px] bg-[#3C3CC8] text-white px-32 py-6 text-xs sm:text-sm rounded-md hover:bg-[#2a2a9e] transition duration-300"
-          >
-            Coming Soon
-          </button>
-        </div> */}
+ 
       </div>
     </div>
   );

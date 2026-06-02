@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import GeneralPaymentCheckout from '../../components/WealthClarity/GeneralPaymentCheckout'
+import VipPaymentCheckout from '../../components/WealthClarity/VipPaymentCheckout'
 
 const packageItems = [
   {
     title: "The 90-Minute Live Webinar (Main Event)",
-    value: "$497",
+    value: "$997",
     description:
       "The core training where you'll gain clarity, learn the system, and build your personalized wealth plan in real time.",
   },
   {
-    title: "The Wealth Clarity Workbook (Digital PDF)",
-    value: "$97",
+    title: "The Wealth Clarity Workbook (PDF)",
+    value: "$247",
     description:
       "A simple, clean workbook you'll fill out during the webinar. This is what gives you the feeling of structure, completion, and progress.",
     includes: [
@@ -22,8 +24,8 @@ const packageItems = [
     ],
   },
   {
-    title: "The 90-Day Money Plan Template (Google Sheet)",
-    value: "$147",
+    title: "The 90-Day Money Plan Template (PDF)",
+    value: "$297",
     description:
       "A plug-and-play tracker to help you organize and monitor your finances so you finally feel in control.",
     includes: [
@@ -36,13 +38,13 @@ const packageItems = [
   },
   {
     title: "Webinar Replay Access (30 Days)",
-    value: "$197",
+    value: "$297",
     description:
       "Rewatch the full session anytime you need a refresher. This alone is worth the price of admission.",
   },
   {
     title: "14-Day Accountability Sprint (#YouREnough# WhatsApp Community)",
-    value: "$297",
+    value: "$329",
     description:
       "You won't be alone after the webinar. Join a supportive community for daily check-ins, habit reminders, and encouragement.",
     includes: [
@@ -54,7 +56,7 @@ const packageItems = [
   },
   {
     title: "BONUS: The Ultimate Investment Playbook (PDF)",
-    value: "$67",
+    value: "$200",
     description:
       "A beginner-friendly investment guide to help you avoid mistakes and build a portfolio you trust.",
     includes: [
@@ -67,49 +69,63 @@ const packageItems = [
 ];
 
 const SectionNine = () => {
+     const [modalType, setModalType] = useState(null);
+  
+  
 
      const scrollToTickets = () => {
     document
       .getElementById("tickets-section")
       ?.scrollIntoView({ behavior: "smooth" });
   };
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-  });
+const [timeLeft, setTimeLeft] = useState({
+  days: "00",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
+});
 
-  useEffect(() => {
-    const targetDateEST = new Date(
-      new Date("2026-01-29T11:30:00").toLocaleString("en-US", {
-        timeZone: "America/New_York",
+useEffect(() => {
+  // 6:00 PM CST on April 30, 2026
+  const targetDateCST = new Date("2026-04-30T18:00:00-06:00");
+
+  const interval = setInterval(() => {
+    const nowCST = new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "America/Chicago",
       })
     );
 
-    const interval = setInterval(() => {
-      const now = new Date(
-        new Date().toLocaleString("en-US", { timeZone: "America/New_York" })
-      );
+    const diff = targetDateCST - nowCST;
 
-      const diff = targetDateEST - now;
+    if (diff <= 0) {
+      clearInterval(interval);
+      setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+      return;
+    }
 
-      if (diff <= 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-        return;
-      }
+    const days = String(
+      Math.floor(diff / (1000 * 60 * 60 * 24))
+    ).padStart(2, "0");
 
-      const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
-      const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
-      const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+    const hours = String(
+      Math.floor((diff / (1000 * 60 * 60)) % 24)
+    ).padStart(2, "0");
 
-      setTimeLeft({ days, hours, minutes, seconds });
-    }, 1000);
+    const minutes = String(
+      Math.floor((diff / (1000 * 60)) % 60)
+    ).padStart(2, "0");
 
-    return () => clearInterval(interval);
-  }, []);
+    const seconds = String(
+      Math.floor((diff / 1000) % 60)
+    ).padStart(2, "0");
+
+    setTimeLeft({ days, hours, minutes, seconds });
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <section className="w-full bg-[#08070F] text-white py-16 sm:py-20 md:py-10 px-4 sm:px-6 lg:px-8">
@@ -158,11 +174,70 @@ const SectionNine = () => {
         </div>
 
         {/* TOTAL VALUE */}
-        <div className="text-center mt-10 sm:mt-12 md:mt-16">
-          <p className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            TOTAL VALUE: <span className="text-[#BD9A35]">$1,302</span>
-          </p>
-        </div>
+      {/* TOTAL VALUE + DISCOUNT */}
+<div className="text-center mt-12 sm:mt-16">
+
+  {/* Cancelled total value */}
+  <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-400 mb-3">
+    Total Value:{" "}
+    <span className="line-through text-gray-500">$2,367</span>
+  </p>
+
+  {/* Discounted pricing */}
+  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8">
+    Get Access Today For:
+  </h3>
+
+  <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch max-w-3xl mx-auto">
+
+    {/* General Admission */}
+    <div className="flex-1 bg-[#100E1A] border border-[#1E1A2A] rounded-2xl p-6 shadow-lg">
+      <p className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+        General Admission
+      </p>
+      <p className="text-4xl font-extrabold text-[#BD9A35] mb-4">$97</p>
+
+    {/* <button
+  onClick={scrollToTickets}
+  className="
+   bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+  Get General Access
+</button> */}
+
+ <button
+  onClick={() => setModalType("general")}
+  className="bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+  hover:bg-red-700 hover:scale-105 transition-transform duration-300 w-full"
+>
+  Get General Access
+</button>
+
+    </div>
+
+    {/* VIP */}
+    <div className="flex-1 bg-[#15121F] border-2 border-[#BD9A35] rounded-2xl p-6 shadow-[0_0_25px_rgba(189,154,53,0.35)]">
+      <p className="text-sm uppercase tracking-wide text-[#E6C677] mb-2">
+        VIP Access
+      </p>
+      <p className="text-4xl font-extrabold text-[#BD9A35] mb-2">$197</p>
+      <p className="text-sm text-gray-300 mb-4">
+        Priority support + best experience
+      </p>
+
+   <button
+  onClick={() => setModalType("vip")}
+  className="w-full bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+  hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+   Get VIP Access </button>
+
+    </div>
+
+  </div>
+</div>
+
 
         {/* CTA */}
         {/* <div className="text-center mt-6 sm:mt-8 md:mt-10">
@@ -189,8 +264,7 @@ const SectionNine = () => {
           <p className="text-center text-gray-400 mb-6 sm:mb-8">
             The Webinar Is: <br />
             <span className="text-lg sm:text-xl md:text-2xl text-white font-semibold">
-              Thursday, January 29th, 2026
-            </span>
+ Thursday, 30th April, 2026            </span>
           </p>
 
           {/* COUNTDOWN */}
@@ -209,14 +283,15 @@ const SectionNine = () => {
           </div>
 
            <div className="text-center mt-14">
-          <button
-            onClick={scrollToTickets}
-            className="inline-block bg-[#BD9A35] hover:bg-[#a9872f]
-              text-black font-bold text-base sm:text-lg px-10 py-4 rounded-lg
-              transition duration-300 shadow-[0_0_20px_rgba(189,154,53,0.45)]"
-          >
-            Reserve My Seat
-          </button>
+         <button
+  onClick={scrollToTickets}
+  className="
+   bg-red-600 text-white font-semibold px-10 py-8 rounded-xl text-lg lg:text-2xl shadow-lg side-bounce cta-button 
+                   hover:bg-red-700 hover:scale-105 transition-transform duration-300"
+>
+  I Want Clarity With My Money
+</button>
+
           <div className="flex flex-wrap items-center justify-center gap-6 mt-5">
 
               {/* Secure Checkout */}
@@ -237,7 +312,7 @@ const SectionNine = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
+                <span className="text-gray-300 text-xs sm:text-lg">
                   100% Secure Checkout
                 </span>
               </div>
@@ -260,8 +335,8 @@ const SectionNine = () => {
                   />
                 </svg>
 
-                <span className="text-gray-300 text-xs sm:text-sm">
-7-Day Money-Back Guarantee                </span>
+                <span className="text-gray-300 text-xs sm:text-lg">
+7-Day Money Back Guarantee                </span>
               </div>
 
             </div>
@@ -277,6 +352,28 @@ const SectionNine = () => {
             </a>
           </div> */}
         </div>
+              {modalType && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 overflow-y-auto">
+    
+    <div className="relative w-full max-w-6xl bg-black rounded-2xl">
+
+      {/* CLOSE BUTTON */}
+      <button
+        onClick={() => setModalType(null)}
+        className="absolute top-4 right-4 text-white text-3xl"
+      >
+        ×
+      </button>
+
+      {/* MODAL CONTENT */}
+      <div className="max-h-[90vh] overflow-y-auto">
+        {modalType === "general" && <GeneralPaymentCheckout />}
+        {modalType === "vip" && <VipPaymentCheckout />}
+      </div>
+
+    </div>
+  </div>
+)}
       </div>
     </section>
   );
