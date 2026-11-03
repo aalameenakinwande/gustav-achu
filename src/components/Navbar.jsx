@@ -80,6 +80,7 @@ const Navbar = () => {
   {[
     "Home",
     "About",
+     "Programs",
     // "Work with Gustav",
     "Podcast",
     "Store",
@@ -111,7 +112,7 @@ const Navbar = () => {
 
           <div className="hidden lg:block">
             <a
-              href="https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03"
+    href="/wealth-consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-600 border hover:bg-red-700 border-red-600   text-sm 2xl:text-md bg-opacity-20 text-white px-6 lg:px-8 py-2 rounded-md  hover:text-white transition duration-300 font-semibold"
@@ -175,6 +176,7 @@ Book your 60-Min Wealth Consultation            </a>
   {[
     "Home",
     "About",
+     "Programs",
     // "Work with Gustav",
     "Podcast",
     "Store",
@@ -199,7 +201,7 @@ Book your 60-Min Wealth Consultation            </a>
   })}
 
   <a
-    href="https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03"
+    href="/wealth-consultation"
     target="_blank"
     rel="noopener noreferrer"
     className="block w-full text-white mt-auto bg-red-600 border hover:bg-red-700 text-center py-2 rounded-md"

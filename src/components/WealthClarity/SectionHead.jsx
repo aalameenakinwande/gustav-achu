@@ -1,91 +1,98 @@
+
 import React from "react";
 
 const SectionHead = () => {
-  const scrollToTickets = () => {
-  document
-    .getElementById("tickets-section")
-    ?.scrollIntoView({ behavior: "smooth" });
-};
-
+  const scrollToConsultation = () => {
+    document
+      .getElementById("consultation-section")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className="bg-[#0A081A] text-[#BD9A35] px-6 md:px-20 py-4">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <section className="bg-[#0A081A] text-white px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12">
+      <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12">
 
         {/* Left Content */}
-        <div className="text-center md:text-left space-y-1">
-          <p className="uppercase tracking-widest text-xs sm:text-sm">
-            Live Zoom Webinar • Thursday, 30th April, 2026
-          </p>
+        <div className="w-full min-w-0 lg:flex-1 text-center lg:text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold leading-tight">
+            The Wealth Clarity &amp; Legacy{" "}
+            <span className="text-[#BD9A35]">
+              Blueprint Funnel
+            </span>
+          </h2>
 
-          <p className="text-sm sm:text-base font-semibold text-white">
-            THE WEALTH CLARITY & LEGACY BLUEPRINT
-          </p>
+          {/* Admission Times */}
+          <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2">
+            <p className="text-sm sm:text-base text-gray-300">
+              <span className="text-[#BD9A35] font-semibold">
+                General Admission:
+              </span>{" "}
+              6:00 PM – 7:30 PM EST
+            </p>
 
-          <p className="text-xs sm:text-sm text-gray-300">
-            General Admission: <span className="text-white">6:00 PM – 7:30 PM CST</span>
-            <span className="mx-2">|</span>
-            VIP: <span className="text-white">6:00 PM – 8:30 PM CST</span>
-          </p>
+            <p className="text-sm sm:text-base text-gray-300">
+              <span className="text-[#BD9A35] font-semibold">
+                VIP Experience:
+              </span>{" "}
+              6:00 PM – 8:30 PM EST
+            </p>
+          </div>
         </div>
-{/* Offer Badge */}
 
-<button
-  onClick={scrollToTickets}
- className=" bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 
-             text-black px-8 py-4 rounded-xl shadow-xl text-center
-             hover:scale-105 transition-transform duration-300"
+        {/* CTA */}
+        <div className="w-full sm:w-auto sm:mx-auto lg:mx-0 lg:w-[320px] xl:w-[350px] flex flex-col items-center gap-3 shrink-0">
+        <button
+  type="button"
+  onClick={() =>
+    document
+      .getElementById("tickets-section")
+      ?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="
+    w-fit
+    max-w-full
+    bg-gradient-to-r from-red-700 via-red-600 to-red-500
+    hover:from-red-800 hover:via-red-700 hover:to-red-600
+    text-white
+    px-6 sm:px-8 md:px-10
+    py-4 sm:py-5
+    rounded-xl
+    shadow-[0_10px_40px_rgba(220,38,38,0.25)]
+    hover:scale-[1.03]
+    active:scale-[0.98]
+    transition-all duration-300
+    focus:outline-none focus:ring-2 focus:ring-red-400
+    focus:ring-offset-2 focus:ring-offset-[#0A081A]
+    animate-[shake_1.5s_ease-in-out_infinite]
+  "
+  style={{
+    animation: "shake 1.5s ease-in-out infinite",
+  }}
 >
-  <p className="text-xs uppercase tracking-widest font-semibold">
-    Total Value: <span className="line-through opacity-80">$2367</span>
-  </p>
+  <span className="text-sm sm:text-base md:text-lg font-extrabold text-center whitespace-nowrap">
+    General: $97 | VIP: $197
+  </span>
 
-  <p className="text-xs uppercase tracking-widest mt-1">
-    Yours Today For
-  </p>
-
-  <p className="text-lg md:text-xl font-extrabold mt-1">
-    General <span className="text-black">$97</span>
-    <span className="mx-2">|</span>
-    VIP <span className="text-red-700">$197</span>
-  </p>
+  <style>
+    {`
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+        20%, 40%, 60%, 80% { transform: translateX(3px); }
+      }
+    `}
+  </style>
 </button>
+
+          {/* <p className="text-[11px] sm:text-xs md:text-sm text-gray-400 text-center max-w-xs leading-relaxed">
+            Choose General Admission or VIP and take the next step toward
+            building your wealth legacy.
+          </p> */}
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
 export default SectionHead;
-
-
-
-
-// import React from "react";
-
-// const EventBanner = () => {
-//   return (
-//     <div className="bg-black text-[#BD9A35] px-6 md:px-20 py-3">
-//       <div className="max-w-7xl mx-auto flex items-center justify-between flex-col md:flex-row gap-3">
-//         <div className="text-center md:text-left">
-//           <p className="uppercase tracking-widCST text-sm">
-//             LIVE Zoom Webinar | Saturday August 2nd | Duration: 1h 30min | 12pm - 1:30pm CST
-//           </p>
-//           <p className="text-sm mt-1 italic text-white">
-//             Turn your paycheck into a wealth-building machine even if you don't make{" "}
-//             <span className="text-[#BD9A35]">$100k</span> or work extra hours
-//           </p>
-//         </div>
-//         <button
-//           className="bg-[#BD9A35] text-[#181349] font-semibold text-sm md:text-base px-6 py-2 hover:bg-yellow-600 transition"
-//           onClick={() => window.open("https://buy.stripe.com/5kQbJ30fBgta3pQ8jqfw40n", "_blank")}
-//         >
-//           Reserve Your Spot Now!
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default EventBanner;
-
-

@@ -1,0 +1,61 @@
+/* Match the Name and Email fields */
+.footer-phone-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #9ca3af;
+  transition: border-color 0.2s ease;
+}
+
+.footer-phone-wrapper:focus-within {
+  border-bottom-color: #facc15;
+}
+
+/* Remove the phone library's own borders */
+.footer-phone-wrapper .react-international-phone-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Country flag and selector */
+.footer-phone-wrapper .react-international-phone-country-selector-button {
+  height: 42px;
+  padding: 8px 8px 8px 0;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Phone number input */
+.footer-phone-wrapper .react-international-phone-input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 8px 0;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  background: transparent !important;
+  color: white !important;
+  font-family: inherit;
+  font-size: 16px;
+  box-shadow: none !important;
+}
+
+.footer-phone-wrapper .react-international-phone-input::placeholder {
+  color: rgb(255 255 255 / 70%);
+  opacity: 1;
+}
+
+.footer-phone-wrapper .react-international-phone-country-selector-dropdown {
+  z-index: 60;
+  color: #111827;
+}
+
+.footer-phone-error {
+  border-bottom-color: #ef4444;
+}

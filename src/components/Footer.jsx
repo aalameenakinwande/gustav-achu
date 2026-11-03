@@ -1,7 +1,15 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { PhoneInput } from "react-international-phone";
+import { isValidPhoneNumber } from "libphonenumber-js";
+
+import "react-international-phone/style.css";
+import "./Footer.css";
+
 import FooterImage from "../images/logo/gustav-acho-logo.png";
+
 import {
   FaLinkedin,
   FaYoutube,
@@ -13,7 +21,9 @@ const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const FORM_ID = "7070892";
   const API_KEY = "orcj11jDI14VkybpDd91mA";
@@ -21,14 +31,42 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
+
+    if (!trimmedName || !trimmedEmail) {
+      setMessage("Please complete all required fields.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate the phone number only when provided.
+    if (trimmedPhone && !isValidPhoneNumber(trimmedPhone)) {
+      setPhoneError(
+        "Please enter a valid phone number for your selected country."
+      );
+      setMessage("");
+      return;
+    }
+
+    setPhoneError("");
+    setLoading(true);
+
     const subscriberData = {
       api_key: API_KEY,
-      email,
-      first_name: name,
-      fields: {
-        phone_number: phone,
-      },
+      email: trimmedEmail,
+      first_name: trimmedName,
+      fields: {},
     };
+
+    if (trimmedPhone) {
+      subscriberData.fields.phone_number = trimmedPhone;
+    }
 
     try {
       const response = await axios.post(
@@ -36,56 +74,70 @@ const Footer = () => {
         subscriberData
       );
 
-      console.log(response.data);
       if (response.data.subscription) {
-        setMessage("Successfully subscribed! Please check your email.");
+        setMessage("Successfully subscribed!");
+
         setName("");
         setEmail("");
         setPhone("");
+        setPhoneError("");
       } else {
         setMessage("Subscription failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error subscribing:", error);
-      setMessage("An error occurred. Please try again later.");
+      console.error("Subscription Error:", error);
+
+      setMessage(
+        error.response?.data?.message ||
+          "An error occurred. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+
+      if (window.footerMessageTimeout) {
+        clearTimeout(window.footerMessageTimeout);
+      }
+
+      window.footerMessageTimeout = setTimeout(() => {
+        setMessage("");
+      }, 5000);
     }
-    setTimeout(() => {
-      setMessage("");
-    }, 5000);
   };
 
   useEffect(() => {
-  // Set LinkedIn Partner ID
-  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-  window._linkedin_data_partner_ids.push("8418393");
+    window._linkedin_data_partner_ids =
+      window._linkedin_data_partner_ids || [];
 
-  // Inject the LinkedIn Insight script
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.async = true;
-  script.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    window._linkedin_data_partner_ids.push("8418393");
 
-  document.head.appendChild(script);
+    const existingScript = document.querySelector(
+      'script[src="https://snap.licdn.com/li.lms-analytics/insight.min.js"]'
+    );
 
-  // Optional cleanup (not strictly necessary here)
-  return () => {
-    document.head.removeChild(script);
-  };
-}, []);
+    if (existingScript) return;
 
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src =
+      "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+
+    document.head.appendChild(script);
+  }, []);
 
   return (
-    <footer className="bg-[#181349] text-white py-12 relative">
-      <div className="max-w-[1600px] mx-auto flex flex-wrap justify-between px-8">
+    <footer className="relative bg-[#181349] py-12 text-white">
+      <div className="mx-auto flex max-w-[1600px] flex-wrap justify-between px-8">
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex flex-col space-y-20">
+        <div className="mb-8 flex w-full flex-col space-y-20 lg:mb-0 lg:w-1/2">
           <img
             src={FooterImage}
             alt="Gustav Acho Logo"
-            className="w-32 lg:w-44 lg:h-32"
+            className="w-32 lg:h-32 lg:w-44"
           />
-          <nav className="mb-8 md:pl-5 font-bold">
-            <ul className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 text-sm">
+
+          <nav className="mb-8 font-bold md:pl-5">
+            <ul className="grid grid-cols-2 gap-10 text-sm md:grid-cols-4 md:gap-4">
               <li>
                 <Link to="/" className="hover:underline">
                   Home
@@ -96,9 +148,9 @@ const Footer = () => {
                   About
                 </Link>
               </li>
-              <li>
-                <Link to="/work-with-gustav" className="hover:underline">
-                  Work with Gustav
+                <li>
+                <Link to="/programs" className="hover:underline">
+                  Programs
                 </Link>
               </li>
               <li>
@@ -111,14 +163,9 @@ const Footer = () => {
                   Store
                 </Link>
               </li>
-                {/* <li>
-                <Link to="/masterclass" className="hover:underline">
-                  Masterclass
-                </Link>
-              </li> */}
               <li>
                 <Link to="/contact" className="hover:underline">
-                  Contact 
+                  Contact
                 </Link>
               </li>
               <li>
@@ -129,48 +176,44 @@ const Footer = () => {
               <li>
                 <Link to="/resource" className="hover:underline">
                   Resources
-                    </Link>
+                </Link>
               </li>
-              {/* <li>
-                <Link to="/events" className="hover:underline">
-                  Events
-                    </Link>
-              </li> */}
-              {/* <li>
-                <Link to="/seminar" className="hover:underline">
-                  Seminar
-                    </Link>
-              </li> */}
             </ul>
           </nav>
+
           <div className="flex space-x-10 md:pl-5">
             <a
               href="https://www.youtube.com/@YouREnoughTV"
               target="_blank"
               rel="noreferrer"
+              aria-label="YouTube"
             >
               <FaYoutube size={30} />
             </a>
+
             <a
-              href="https://www.linkedin.com/in/gustav-achu-618780103?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "
+              href="https://www.linkedin.com/in/gustav-achu-618780103"
               target="_blank"
               rel="noreferrer"
+              aria-label="LinkedIn"
             >
               <FaLinkedin size={30} />
             </a>
+
             <a
-              href="https://www.instagram.com/gachu77
-"
+              href="https://www.instagram.com/gachu77"
               target="_blank"
               rel="noreferrer"
+              aria-label="Instagram"
             >
               <FaInstagram size={30} />
             </a>
-         
+
             <a
               href="https://web.facebook.com/gustav.achu.1/?_rdc=1&_rdr"
               target="_blank"
               rel="noreferrer"
+              aria-label="Facebook"
             >
               <FaFacebook size={30} />
             </a>
@@ -178,82 +221,124 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-between">
-          {/* Pop-up Message at the top */}
+        <div className="flex w-full flex-col justify-between lg:w-1/2">
           {message && (
-            <div className="fixed top-0 left-0 w-full bg-blue-600 text-white text-center py-4 z-50">
+            <div
+              role="status"
+              className="fixed left-0 top-0 z-50 w-full bg-blue-600 py-4 text-center text-white"
+            >
               {message}
             </div>
           )}
 
-          {/* <h1
-            className="text-4xl mb-5 md:mb-0 sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#EFE359] lg:mb-10"
-            style={{ fontFamily: "Butler, serif" }}
-          >
-            START LIVING BY DESIGN
-          </h1>
-          <p className="mb-8 text-md text-justify md:text-lg">
-            <strong>Join a community of everyday people</strong> achieving
-            extraordinary things as they learn to build the life they want and
-            design the legacy they desire. Gustav will reach you directly every
-            week (you’ll achieve what most people only dream about
-            all their lives).
-          </p> */}
           <form onSubmit={handleSubmit} className="mb-4">
-      <input
-        type="text"
-        placeholder="First and last name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-4"
-        required
-      />
-      <input
-        type="email"
-        placeholder="Your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-4"
-        required
-      />
-      <input
-        type="tel"
-        placeholder="Your phone number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="bg-transparent border-b border-gray-400 text-white py-2 w-full mb-10"
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white mb-10 md:mb-0 px-6 py-3 rounded-md w-full text-lg transform transition-transform hover:scale-105"
-      >
-        Gain Free Access
-      </button>
-      {message && <p className="text-white mt-4">{message}</p>}
-    </form>
+            <input
+              type="text"
+              placeholder="First and last name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete="name"
+              className="mb-4 w-full border-b border-gray-400 bg-transparent py-2 text-white placeholder-white/70 focus:border-yellow-400 focus:outline-none"
+              required
+            />
+
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              className="mb-4 w-full border-b border-gray-400 bg-transparent py-2 text-white placeholder-white/70 focus:border-yellow-400 focus:outline-none"
+              required
+            />
+
+            {/* International Phone Number */}
+           <div
+              className={`footer-phone-wrapper ${
+                phoneError ? "footer-phone-error" : ""
+              }`}
+            >
+              <PhoneInput
+                defaultCountry="us"
+                value={phone}
+                onChange={(value) => {
+                  setPhone(value);
+                  setPhoneError("");
+                }}
+                forceDialCode
+                inputProps={{
+                  name: "phone",
+                  placeholder: "Phone Number",
+                  autoComplete: "tel",
+                  "aria-label": "Phone Number",
+                  "aria-invalid": Boolean(phoneError),
+                }}
+                className="footer-phone-input"
+              />
+            </div>
+
+            {phoneError && (
+              <p className="mt-2 text-sm text-red-400" role="alert">
+                {phoneError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="mb-10 w-full transform rounded-md bg-blue-600 px-6 py-3 text-lg text-white transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60 md:mb-0"
+            >
+              {loading ? "Submitting..." : "Gain Free Access"}
+            </button>
+          </form>
         </div>
       </div>
-      <div className="flex flex-col items-center md:items-end md:flex-row md:justify-between absolute bottom-0 w-full text-center md:text-right px-8 py-4">
-      <p className="text-sm">
-  &copy; {new Date().getFullYear()} Gustav Achu. All rights reserved.
-</p>
 
-<p className="text-xs">
-  <a href="https://www.kickandcosynergy.com/" target="_blank" rel="noopener noreferrer" className="underline">
-    powered by KICK&CO SYNERGY LTD
-  </a>
-</p>
-<div className="flex justify-center space-x-3 text-sm">
-  <a href="/privacy-policy" className="hover:underline">
-    Privacy Policy
-  </a>
-  <a href="/terms-of-use" className="hover:underline">
-    Terms of Use
-  </a>
-  <a href="/refund-policy" className="hover:underline">
-    Refund Policy
-  </a>
-</div>
+      {/* Bottom Footer */}
+      <div className="absolute bottom-0 flex w-full flex-col items-center px-8 py-4 text-center md:flex-row md:items-end md:justify-between md:text-right">
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} Gustav Achu. All rights reserved.
+        </p>
+
+        <p className="text-xs">
+          <a
+            href="https://www.kickandcosynergy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            powered by KICK&CO SYNERGY LTD
+          </a>
+        </p>
+
+        <div className="flex justify-center space-x-3 text-sm">
+          <a
+            href="/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Privacy Policy
+          </a>
+
+          <a
+            href="/terms-and-conditions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Terms and Conditions
+          </a>
+
+          <a
+            href="/refund-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Refund Policy
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -87,21 +87,19 @@ const [timeLeft, setTimeLeft] = useState({
 });
 
 useEffect(() => {
-  // 6:00 PM CST on April 30, 2026
-  const targetDateCST = new Date("2026-04-30T18:00:00-06:00");
+  // January 28, 2027, at 6:00 PM Chicago time (CST, UTC-6)
+  const targetDate = new Date("2027-01-28T18:00:00-06:00");
 
-  const interval = setInterval(() => {
-    const nowCST = new Date(
-      new Date().toLocaleString("en-US", {
-        timeZone: "America/Chicago",
-      })
-    );
-
-    const diff = targetDateCST - nowCST;
+  const updateCountdown = () => {
+    const diff = targetDate.getTime() - Date.now();
 
     if (diff <= 0) {
-      clearInterval(interval);
-      setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+      setTimeLeft({
+        days: "00",
+        hours: "00",
+        minutes: "00",
+        seconds: "00",
+      });
       return;
     }
 
@@ -122,11 +120,14 @@ useEffect(() => {
     ).padStart(2, "0");
 
     setTimeLeft({ days, hours, minutes, seconds });
-  }, 1000);
+  };
+
+  updateCountdown();
+
+  const interval = setInterval(updateCountdown, 1000);
 
   return () => clearInterval(interval);
 }, []);
-
 
   return (
     <section className="w-full bg-[#08070F] text-white py-16 sm:py-20 md:py-10 px-4 sm:px-6 lg:px-8">
@@ -265,7 +266,9 @@ useEffect(() => {
           <p className="text-center text-gray-400 mb-6 sm:mb-8">
             The Webinar Is: <br />
             <span className="text-lg sm:text-xl md:text-2xl text-white font-semibold">
- Thursday, 30th April, 2026            </span>
+ Thursday, January 28th, 2027
+
+        </span>
           </p>
 
           {/* COUNTDOWN */}

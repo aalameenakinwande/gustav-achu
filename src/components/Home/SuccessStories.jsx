@@ -5,6 +5,12 @@ import Gilbert from "../../images/Testimonials/Gilbert.jpg";
 import KingsleyImage from "../../images/Testimonials/pungong.webp";
 import Charles from "../../images/Testimonials/Charles.jpeg";
 
+
+import Cynthia from "../../images/Testimonials/cynthia.webp";
+import Francis from "../../images/Testimonials/francis.jpg";
+import Jonathan from "../../images/Testimonials/jonathan.webp";
+import Williams from "../../images/Testimonials/williams.webp";
+
 const testimonials = [
   {
     quote:
@@ -27,6 +33,44 @@ const testimonials = [
     title: "CEO at Rainbow Sports Global",
     image: KingsleyImage,
   },
+
+
+
+
+
+    {
+    quote:
+      "Working with Gustav helped remove a lot of fear and uncertainty I had around investing. He showed me how to grow my money steadily using smart, safe strategies instead of chasing trends or shortcuts. His approach is calm, practical, and rooted in long-term success. I feel more in control of my financial future and much more confident in the decisions I’m making. I highly recommend him to anyone who wants to invest wisely and build lasting wealth.",
+    name: "Williams. A.",
+    title: "Entrepreneur",
+    image: Williams,
+  },
+    {
+    quote:
+      "Hey Gustav, I had to message you real quick. I used to feel stuck living paycheck to paycheck, without savings or a financial plan. But since the webinar, a lot has changed. I created my own wealth plan that same week. By myself. Now, I'm putting my money to work every month using some of the investment strategies you shared. Thank you, Gustav. Keep doing this!",
+    name: "Jonathan R.",
+    title: "Operations Manager",
+    image: Jonathan,
+  },
+    {
+    quote:
+      "Working with Gustav has been a refreshing experience. He helped me understand how to invest intelligently and grow my money safely while keeping my long-term goals in focus. His approach goes beyond finances—it’s about alignment, discipline, and building wealth with purpose and intention. He is thoughtful, knowledgeable, and deeply committed to helping people create lasting financial stability. I highly recommend him to anyone serious about building wealth that endures.",
+    name: "Cynthia. M.",
+    title: "IT professional",
+    image: Cynthia,
+  },
+    {
+    quote:
+      "We’re a living testimony of your mentorship. We sleep under a roof today because you pushed us to start—even when fear told us not to. Your words gave us the courage to lay that first block. Now we’re home.",
+    name: "Francis Aruna",
+    title: "Business owner",
+    image: Francis,
+  },
+
+
+
+
+
 ];
 
 const SuccessStories = () => {

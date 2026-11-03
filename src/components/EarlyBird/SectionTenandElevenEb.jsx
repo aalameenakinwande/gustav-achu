@@ -1,31 +1,22 @@
 import React, { useEffect, useState } from "react";
-import GeneralPaymentCheckout from '../../components/WealthClarity/GeneralPaymentCheckout'
-import VipPaymentCheckout from '../../components/WealthClarity/VipPaymentCheckout'
 import VipPaymentCheckoutEb from "../WealthClarity/VipPaymentCheckoutEb";
 import GeneralPaymentCheckoutEb from "../WealthClarity/GeneralPaymentCheckoutEb";
 
 
 const SectionTenandElevenEb = () => {
-const [timeLeft, setTimeLeft] = useState("");
    const [modalType, setModalType] = useState(null);
 
+const [timeLeft, setTimeLeft] = useState("");
 
 useEffect(() => {
-  // 6:00 PM Chicago time (CDT in April)
-  const targetDate = new Date("2026-04-30T18:00:00-05:00");
+  // January 28, 2027, at 6:00 PM Chicago time (CST, UTC-6)
+  const targetDate = new Date("2027-01-28T18:00:00-06:00");
 
-  const interval = setInterval(() => {
-    const nowChicago = new Date(
-      new Date().toLocaleString("en-US", {
-        timeZone: "America/Chicago",
-      })
-    );
-
-    const diff = targetDate - nowChicago;
+  const updateCountdown = () => {
+    const diff = targetDate.getTime() - Date.now();
 
     if (diff <= 0) {
       setTimeLeft("Closed");
-      clearInterval(interval);
       return;
     }
 
@@ -34,7 +25,11 @@ useEffect(() => {
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
     setTimeLeft(`${days}d ${hours}h ${minutes}m`);
-  }, 1000);
+  };
+
+  updateCountdown();
+
+  const interval = setInterval(updateCountdown, 1000);
 
   return () => clearInterval(interval);
 }, []);

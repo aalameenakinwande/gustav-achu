@@ -5,21 +5,15 @@ import VipPaymentCheckout from '../../components/WealthClarity/VipPaymentCheckou
 
 const SectionTenandEleven = () => {
 const [timeLeft, setTimeLeft] = useState("");
-   const [modalType, setModalType] = useState(null);
-
+const [modalType, setModalType] = useState(null);
 
 useEffect(() => {
-  // 6:00 PM Chicago time (CDT in April)
-  const targetDate = new Date("2026-04-30T18:00:00-05:00");
+  // Thursday, January 28, 2027 — 6:00 PM CST
+  const targetDate = new Date("2027-01-28T18:00:00-06:00");
 
   const interval = setInterval(() => {
-    const nowChicago = new Date(
-      new Date().toLocaleString("en-US", {
-        timeZone: "America/Chicago",
-      })
-    );
-
-    const diff = targetDate - nowChicago;
+    const now = new Date();
+    const diff = targetDate.getTime() - now.getTime();
 
     if (diff <= 0) {
       setTimeLeft("Closed");

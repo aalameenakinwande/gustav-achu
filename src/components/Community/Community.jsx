@@ -1,27 +1,81 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FaWhatsapp } from "react-icons/fa";
+import { PhoneInput } from "react-international-phone";
+import { isValidPhoneNumber } from "libphonenumber-js";
+
+import "react-international-phone/style.css";
 
 const Community = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const messageTimeout = useRef(null);
 
   const FORM_ID = "7070892";
   const API_KEY = "orcj11jDI14VkybpDd91mA";
 
+  const showMessage = (text) => {
+    setMessage(text);
+
+    if (messageTimeout.current) {
+      window.clearTimeout(messageTimeout.current);
+    }
+
+    messageTimeout.current = window.setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
+
+    setMessage("");
+    setPhoneError("");
+
+    if (!trimmedName) {
+      showMessage("Please enter your name.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(trimmedEmail)) {
+      showMessage("Please enter a valid email address.");
+      return;
+    }
+
+    if (!trimmedPhone) {
+      setPhoneError("Please enter your phone number.");
+      return;
+    }
+
+    if (!isValidPhoneNumber(trimmedPhone)) {
+      setPhoneError(
+        "Please enter a valid phone number for the selected country."
+      );
+      return;
+    }
+
     const subscriberData = {
       api_key: API_KEY,
-      email,
-      first_name: name,
+      email: trimmedEmail,
+      first_name: trimmedName,
       fields: {
-        phone_number: phone,
+        phone_number: trimmedPhone,
       },
     };
+
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -30,201 +84,398 @@ const Community = () => {
       );
 
       if (response.data.subscription) {
-        setMessage("Successfully subscribed! Please check your email.");
+        showMessage("Successfully subscribed!");
+
         setName("");
         setEmail("");
         setPhone("");
+        setPhoneError("");
       } else {
-        setMessage("Subscription failed. Please try again.");
+        showMessage("Subscription failed. Please try again.");
       }
     } catch (error) {
-      setMessage("An error occurred. Please try again later.");
-    }
+      console.error("Community subscription error:", error);
 
-    setTimeout(() => setMessage(""), 5000);
+      showMessage(
+        error.response?.data?.message ||
+          "An error occurred. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
-  return (
-    <section className="bg-[#0E0E0E] text-white  md:px-16 lg:px-24 py-28 lg:py-44">
-      <div className="max-w-6xl mx-auto">
+  useEffect(() => {
+    window._linkedin_data_partner_ids =
+      window._linkedin_data_partner_ids || [];
 
+    if (!window._linkedin_data_partner_ids.includes("8418393")) {
+      window._linkedin_data_partner_ids.push("8418393");
+    }
+
+    const existingScript = document.querySelector(
+      'script[src="https://snap.licdn.com/li.lms-analytics/insight.min.js"]'
+    );
+
+    let script;
+
+    if (!existingScript) {
+      script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src =
+        "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      if (messageTimeout.current) {
+        window.clearTimeout(messageTimeout.current);
+      }
+
+      // Leave the LinkedIn script in place if another component uses it.
+    };
+  }, []);
+
+  return (
+    <section className="bg-[#0E0E0E] py-28 text-white md:px-16 lg:px-24 lg:py-44">
+      <div className="mx-auto max-w-6xl">
         {/* HERO */}
-        <div className="text-center max-w-4xl mx-auto px-2">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: "Butler, serif" }}>
-            Build Wealth With Clarity. Invest With Confidence. Leave a Lasting Legacy.
+        <div className="mx-auto max-w-4xl px-2 text-center">
+          <h1
+            className="mb-6 text-3xl font-bold leading-tight md:text-5xl lg:text-6xl"
+            style={{ fontFamily: "Butler, serif" }}
+          >
+            Build Wealth With Clarity. Invest With Confidence. Leave a
+            Lasting Legacy.
           </h1>
 
-          <p className=" md:text-xl text-gray-300 mb-8">
-            Join thousands of professionals receiving practical weekly insights on investing, personal growth, and legacy building—designed to help you create lasting wealth without confusion, guesswork, or costly financial mistakes.
+          <p className="mb-8 text-gray-300 md:text-xl">
+            Join thousands of professionals receiving practical weekly
+            insights on investing, personal growth, and legacy building—designed
+            to help you create lasting wealth without confusion, guesswork, or
+            costly financial mistakes.
           </p>
 
-          <p className="text-sm uppercase tracking-widest text-[#BD9A35] mb-6">
+          <p className="mb-6 text-sm uppercase tracking-widest text-[#BD9A35]">
             Trusted by Professionals Across the U.S., Canada & Africa
           </p>
 
-          <p className="text-gray-400 mb-12">
-            Clear strategies. Practical execution. Real wealth-building principles that help you grow financially, professionally, and personally.
+          <p className="mb-12 text-gray-400">
+            Clear strategies. Practical execution. Real wealth-building
+            principles that help you grow financially, professionally, and
+            personally.
           </p>
         </div>
 
-        {/* FORM + VALUE */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start px-6">
-
-          {/* LEFT */}
+        {/* FORM + WHATSAPP */}
+        <div className="grid items-start gap-10 px-6 lg:grid-cols-2">
+          {/* LEFT - NEWSLETTER */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Get Your Weekly Wealth Insights
+            <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+              Get Your Weekly Insights, Straight To Your Inbox
             </h2>
 
             <p className="mb-6 text-gray-300">
               Receive actionable lessons every week on:
             </p>
 
-            <ul className="space-y-3 text-gray-300 mb-10">
-              <li>✔ Smart investing and stock market wealth-building strategies</li>
+            <ul className="mb-10 space-y-3 text-gray-300">
+              <li>
+                ✔ Smart investing and stock market wealth-building strategies
+              </li>
               <li>✔ Financial clarity and long-term wealth preservation</li>
               <li>✔ Legacy planning for family and future generations</li>
               <li>✔ Real-world case studies and practical money frameworks</li>
               <li>✔ Private insights and exclusive updates from Gustav</li>
             </ul>
 
-            <h3 className="text-lg font-semibold mb-4">
+            <h3 className="mb-4 text-lg font-semibold">
               Enter Your Details Below
             </h3>
 
             {message && (
-              <div className="fixed top-0 left-0 w-full bg-blue-600 text-white text-center py-3 z-50">
+              <div
+                className="fixed left-0 top-0 z-50 w-full bg-blue-600 px-4 py-3 text-center text-white"
+                role="status"
+                aria-live="polite"
+              >
                 {message}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* NAME */}
               <div>
-                <label className="text-sm block mb-1">First Name*</label>
+                <label className="mb-1 block text-sm" htmlFor="community-name">
+                  First Name*
+                </label>
+
                 <input
+                  id="community-name"
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoComplete="given-name"
                   required
-                  className="w-full p-3 bg-white text-black"
+                  className="w-full bg-white p-3 text-black"
                 />
               </div>
 
+              {/* EMAIL */}
               <div>
-                <label className="text-sm block mb-1">Email Address*</label>
+                <label
+                  className="mb-1 block text-sm"
+                  htmlFor="community-email"
+                >
+                  Email Address*
+                </label>
+
                 <input
+                  id="community-email"
                   type="email"
+                  name="email"
                   placeholder="email@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
                   required
-                  className="w-full p-3 bg-white text-black"
+                  className="w-full bg-white p-3 text-black"
                 />
               </div>
 
+              {/* INTERNATIONAL PHONE */}
               <div>
-                <label className="text-sm block mb-1">Phone number</label>
-                <input
-                  type="tel"
-                  placeholder="Your phone number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full p-3 bg-white text-black"
-                />
+                <label
+                  className="mb-1 block text-sm"
+                  htmlFor="community-phone"
+                >
+                  Phone Number*
+                </label>
+
+                <div
+                  className={`community-phone-wrapper ${
+                    phoneError ? "community-phone-invalid" : ""
+                  }`}
+                >
+                  <PhoneInput
+                    defaultCountry="us"
+                    value={phone}
+                    onChange={(value) => {
+                      setPhone(value);
+                      setPhoneError("");
+                    }}
+                    forceDialCode
+                    inputProps={{
+                      id: "community-phone",
+                      name: "phone",
+                      placeholder: "Your phone number",
+                      autoComplete: "tel",
+                      required: true,
+                      "aria-invalid": Boolean(phoneError),
+                      "aria-describedby": phoneError
+                        ? "community-phone-error"
+                        : undefined,
+                    }}
+                    className="community-phone-input"
+                    inputClassName="community-phone-number"
+                  />
+                </div>
+
+                {phoneError && (
+                  <p
+                    id="community-phone-error"
+                    className="mt-2 text-sm text-red-400"
+                    role="alert"
+                  >
+                    {phoneError}
+                  </p>
+                )}
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#BD9A35] hover:bg-[#a8872f] py-4 font-semibold transition"
+                disabled={loading}
+                className="w-full bg-[#BD9A35] py-4 font-semibold transition hover:bg-[#a8872f] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                I Want Weekly Wealth Insights
+                {loading
+                  ? "Submitting..."
+                  : "I Want Weekly Wealth Insights"}
               </button>
             </form>
+          </div>
 
-            {/* WHATSAPP */}
-            <div className="mt-10 text-center">
-              <p className="mb-4">
-                <FaWhatsapp className="inline mr-2 text-green-500 text-xl" />
-                Join Private WhatsApp Community
-              </p>
+          {/* RIGHT - WHATSAPP */}
+          <div className="h-fit rounded-lg border border-gray-700 bg-[#171717] p-8">
+            <div className="text-center">
+              <FaWhatsapp className="mx-auto mb-6 text-6xl text-green-500" />
 
-              <p className="text-gray-400 mb-4">
-                Connect with professionals, investors, and entrepreneurs focused on building wealth, making better financial decisions, and creating generational impact.
+              <h3 className="mb-4 text-2xl font-bold">
+                Join Our Private WhatsApp Community
+              </h3>
+
+              <p className="mb-6 text-gray-300">
+                Connect with professionals, investors, and entrepreneurs
+                committed to building wealth, making smarter financial
+                decisions, and creating lasting generational impact.
               </p>
 
               <a
                 href="https://chat.whatsapp.com/E1THU5dlbW05lCqVnYQHd9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-green-600 hover:bg-green-700 px-6 py-3 font-semibold"
+                className="inline-block rounded bg-green-600 px-8 py-4 font-semibold transition hover:bg-green-700"
               >
-                Join the Legacy Circle Community
+                Join the Legacy Circle
               </a>
             </div>
           </div>
+        </div>
 
-          {/* RIGHT STORY */}
-          <div className="space-y-10 text-gray-300">
-            <div>
-                <h3 className="text-xl font-bold text-white mb-4">
-Join the Legacy Circle Community
-              </h3>
-              <p className="mb-4">Most people work for money.</p>
-              <p className="mb-4">Few learn how to make money work for them.</p>
-              <p className="mb-4">
-                True wealth is not just about income—it is about clarity, strategy, ownership, and building something that outlives you.
-              </p>
-              <p className="mb-4">
-                This weekly letter helps you move from financial uncertainty to intentional wealth creation.
-              </p>
-              <p className="mb-4">
-                Because your success should not stop with you.
-              </p>
-              <p>It should become your legacy.</p>
-            </div>
+        {/* STORY SECTION */}
+        <div className="mx-auto mt-24 max-w-5xl space-y-16 px-6 text-gray-300">
+          <div>
+            <h3 className="mb-6 text-3xl font-bold text-white">
+              Join the Legacy Circle Community
+            </h3>
 
-            <div className="border-t border-gray-700 pt-6">
-              <h3 className="text-xl font-bold text-white mb-4">
-                A Message From Gustav B. Achu
-              </h3>
+            <p className="mb-4">Most people work for money.</p>
 
-              <p className="mb-4">
-                For years, I have worked with professionals, entrepreneurs, and families who wanted more than financial survival—they wanted clarity.
-              </p>
-              <p className="mb-4">Clarity on how to invest wisely.</p>
-              <p className="mb-4">Clarity on how to structure wealth intentionally.</p>
-              <p className="mb-4">
-                Clarity on how to create a legacy that impacts generations.
-              </p>
-              <p className="mb-4">
-                This platform was built to provide practical guidance that helps you think differently about money, wealth, and purpose.
-              </p>
-              <p className="mb-4">Not hype.</p>
-              <p className="mb-4">Not noise.</p>
-              <p className="mb-4">Just real strategies for real results.</p>
-              <p>
-                If that is what you are looking for, you are in the right place.
-              </p>
-            </div>
+            <p className="mb-4">
+              Few learn how to make money work for them.
+            </p>
 
-            <div className="border-t border-gray-700 pt-6 text-sm text-gray-400">
+            <p className="mb-4">
+              True wealth is not just about income—it is about clarity,
+              strategy, ownership, and building something that outlives you.
+            </p>
 
-                <h3 className="text-xl font-bold text-white mb-4">
-Next Weekly Edition Goes Out Tuesday 8AM CS              </h3>
+            <p className="mb-4">
+              This weekly letter helps you move from financial uncertainty to
+              intentional wealth creation.
+            </p>
 
+            <p className="mb-4">Because your success should not stop with you.</p>
 
-  <h3 className="text-xl font-bold text-white mb-4">
-                Your future wealth is built by the decisions you make today.
-          </h3>
-
-
-
-            </div>
+            <p>It should become your legacy.</p>
           </div>
 
+          <div className="border-t border-gray-700 pt-10">
+            <h3 className="mb-6 text-3xl font-bold text-white">
+              A Message From Gustav B. Achu
+            </h3>
+
+            <p className="mb-4">
+              For years, I have worked with professionals, entrepreneurs, and
+              families who wanted more than financial survival—they wanted
+              clarity.
+            </p>
+
+            <p className="mb-4">Clarity on how to invest wisely.</p>
+
+            <p className="mb-4">
+              Clarity on how to structure wealth intentionally.
+            </p>
+
+            <p className="mb-4">
+              Clarity on how to create a legacy that impacts generations.
+            </p>
+
+            <p className="mb-4">
+              This platform was built to provide practical guidance that helps
+              you think differently about money, wealth, and purpose.
+            </p>
+
+            <p className="mb-4">Not hype.</p>
+            <p className="mb-4">Not noise.</p>
+            <p className="mb-4">Just real strategies for real results.</p>
+
+            <p>
+              If that is what you are looking for, you are in the right place.
+            </p>
+          </div>
+
+          <div className="border-t border-gray-700 pt-10 text-center">
+            <h3 className="mb-4 text-2xl font-bold text-white">
+              Next Weekly Edition Goes Out Tuesday 8AM CST
+            </h3>
+
+            <p className="text-xl text-gray-400">
+              Your future wealth is built by the decisions you make today.
+            </p>
+          </div>
         </div>
       </div>
+
+      {/* Phone input styling */}
+      <style>{`
+        .community-phone-wrapper {
+          width: 100%;
+        }
+
+        .community-phone-input {
+          display: flex;
+          width: 100%;
+          min-height: 48px;
+          background: #fff;
+        }
+
+        .community-phone-input .react-international-phone-input-container {
+          display: flex;
+          width: 100%;
+          min-height: 48px;
+          border: 1px solid #d1d5db;
+          border-radius: 0;
+          background: #fff;
+        }
+
+        .community-phone-input .react-international-phone-country-selector-button {
+          height: 100%;
+          min-height: 46px;
+          border: none;
+          border-radius: 0;
+          background: #fff;
+        }
+
+        .community-phone-input .community-phone-number,
+        .community-phone-input .react-international-phone-input {
+          flex: 1;
+          width: 100%;
+          min-width: 0;
+          height: 46px;
+          padding: 12px;
+          border: none;
+          border-radius: 0;
+          background: #fff;
+          color: #000;
+          font-family: inherit;
+          font-size: 16px;
+          outline: none;
+          box-shadow: none;
+        }
+
+        .community-phone-input .react-international-phone-input:focus {
+          outline: none;
+          box-shadow: none;
+        }
+
+        .community-phone-input .react-international-phone-input::placeholder {
+          color: #6b7280;
+          opacity: 1;
+        }
+
+        .community-phone-invalid .react-international-phone-input-container {
+          border-color: #f87171;
+        }
+
+        .community-phone-input .react-international-phone-country-selector-dropdown {
+          z-index: 60;
+          color: #111827;
+        }
+      `}</style>
     </section>
   );
 };

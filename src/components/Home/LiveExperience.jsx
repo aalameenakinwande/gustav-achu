@@ -126,7 +126,7 @@ const LiveExperience = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: "YouTube Videos", time: "Every Friday • 8PM EST" },
-              { title: "Podcast Conversations", time: "Bi-weekly Tuesdays • 8PM EST" },
+              { title: "Podcast Conversations", time: "Bi-weekly Tuesdays • 8AM EST" },
               { title: "YouTube Lives", time: "Every Thursday • 8PM EST" },
             ].map((item, index) => (
               <div

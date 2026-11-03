@@ -55,6 +55,16 @@ import RefundPolicy from "./components/RefundPolicy";
 import TermsofUse from "./components/TermsofUse";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { useEffect } from "react";
+import WealthClarityIndex from "./components/Quiz/WealthClarityIndex";
+import WealthClarityQuiz from "./components/Quiz/WealthClarityQuiz";
+import WealthConsultation from "./components/WealthClarity/WealthConsultation";
+import TripOffer from "./components/WealthClarity/TripOffer";
+import WatchTripOffer from "./components/WealthClarity/WatchTripOffer";
+import GustavShop from "./components/Shop/GustavShop";
+import Programs from "./components/Programs/Programs";
+import ProductDetails from "./components/Shop/ProductDetails";
+import ProgramForm from "./components/Programs/ProgramForm";
+
 
 
 function LayoutWrapper({ children }) {
@@ -80,7 +90,11 @@ function LayoutWrapper({ children }) {
     "/paycheck-to-prosperity-opt-in",
     "/paycheck-to-prosperity-watch",
     "/pre-checkout",
-    "/wealth-masterclass"
+    "/wealth-masterclass",
+     "/wealth-consultation",
+     "/paycheck-escape-system",
+       "/paycheck-escape-system-watch",
+       "/paycheck-to-prosperity-accelerator"
   ];
   const hideLayout = hiddenRoutes.includes(location.pathname);
 
@@ -311,7 +325,7 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
-      {/* <Route
+     <Route
         path="/wealth-clarity"
         element={
           <LayoutWrapper>
@@ -319,12 +333,12 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
-       */}
+       
 
-<Route
+{/* <Route
   path="/wealth-clarity"
   element={<WealthClarityRedirect />}
-/>
+/> */}
 
 
        {/* <Route
@@ -335,6 +349,38 @@ function AppRoutes() {
     </LayoutWrapper>
   }
 /> */}
+
+
+<Route
+        path="/wealth-consultation"
+        element={
+          <LayoutWrapper>
+            <WealthConsultation />
+          </LayoutWrapper>
+        }
+      />
+
+
+      <Route
+        path="/paycheck-escape-system"
+        element={
+          <LayoutWrapper>
+            <TripOffer />
+          </LayoutWrapper>
+        }
+      />
+
+
+    <Route
+        path="/paycheck-escape-system-watch"
+        element={
+          <LayoutWrapper>
+            <WatchTripOffer />
+          </LayoutWrapper>
+        }
+      />
+
+
 
 
       <Route
@@ -396,10 +442,10 @@ function AppRoutes() {
 
 
       
-<Route
+{/* <Route
   path="/wealth-masterclass"
   element={<PaystackRedirect />}
-/>
+/> */}
 
 
       <Route
@@ -434,20 +480,20 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
-      <Route
+      {/* <Route
         path="/early-bird"
         element={<Navigate to="/wealth-clarity" replace />}
-      />
+      /> */}
 
       
-       {/* <Route
+       <Route
         path="/early-bird"
         element={
           <LayoutWrapper>
             <EarlyBird />
           </LayoutWrapper>
         }
-      />  */}
+      /> 
       <Route
         path="/linktree"
         element={
@@ -472,6 +518,30 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
+
+         <Route
+        path="/wealth-clarity-index"
+        element={
+          <LayoutWrapper>
+            <WealthClarityIndex />
+          </LayoutWrapper>
+        }
+      />
+
+
+
+    <Route
+        path="/wealth-clarity-quiz"
+        element={
+          <LayoutWrapper>
+            <WealthClarityQuiz />
+          </LayoutWrapper>
+        }
+      />
+
+
+
+
       <Route
         path="/thank-you-vip"
         element={
@@ -512,6 +582,37 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
+
+
+        {/* <Route
+        path="/wealth-masterclass"
+        element={
+          <LayoutWrapper>
+            <WealthMasterclass />
+          </LayoutWrapper>
+        }
+      /> */}
+
+      
+        <Route
+        path="/programs"
+        element={
+          <LayoutWrapper>
+            <Programs />
+          </LayoutWrapper>
+        }
+      />
+
+
+  <Route
+        path="/paycheck-to-prosperity-accelerator"
+        element={
+          <LayoutWrapper>
+            <ProgramForm />
+          </LayoutWrapper>
+        }
+      />
+
       
 
 
@@ -527,7 +628,7 @@ function AppRoutes() {
 
 
         <Route
-        path="/terms-of-use"
+        path="/terms-and-conditions"
         element={
           <LayoutWrapper>
             <TermsofUse />
@@ -546,7 +647,21 @@ function AppRoutes() {
           </LayoutWrapper>
         }
       />
+
+
       
+        <Route
+        path="/shop"
+        element={
+          <LayoutWrapper>
+            <GustavShop />
+          </LayoutWrapper>
+        }
+      />
+      
+      <Route path="/shop/:slug" element={<ProductDetails />} />
+
+
       {/* <Route
         path="/thank-you"
         element={

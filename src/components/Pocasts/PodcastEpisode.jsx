@@ -29,7 +29,7 @@ const PodcastEpisode = () => {
                      {/* CARDS */}
           <div className="grid md:grid-cols-1 mt-5 gap-6">
             {[
-              { title: "Podcast Conversations", time: "Bi-weekly Tuesdays • 9AM EST" },
+              { title: "Podcast Conversations", time: "Bi-weekly Tuesdays • 8AM EST" },
             ].map((item, index) => (
               <div
                 key={index}

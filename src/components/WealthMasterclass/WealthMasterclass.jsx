@@ -15,18 +15,14 @@ const WealthMasterclass = () => {
     <>
       <WealthMasterclassNav />
       <WealthMasterclassHero />
-<WealthMasterTestimonials />      <WealthMasterclassTransform />
+      <WealthMasterTestimonials /> <WealthMasterclassTransform />
       <WealthMasterclassWho />
       <WealthMasterclassBreakdown />
       <WealthMasterclassPackage />
       <div className="overflow-y-hidden">
-
-      <WealthMasterclassWebinar />
+        <WealthMasterclassWebinar />
       </div>
-
-            <WealthMasterclassGustav />
-
-
+      <WealthMasterclassGustav />
       <WealthMasterclassFaQ />
     </>
   );

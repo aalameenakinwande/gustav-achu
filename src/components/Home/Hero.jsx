@@ -108,11 +108,11 @@ Gustav B. Achu helps mid- and high-income professionals, first- and second-gener
         <div className="mt-20 lg:mt-10 pt-5 lg:pt-10 flex flex-col md:flex-row justify-center gap-6 lg:gap-16 w-full px-4 md:px-0" data-aos="fade-up">
 <button
   onClick={() =>
-    window.open("https://calendly.com/gustavachu77/1-1-with-gustav?month=2026-03", "_blank")
+    navigate("/wealth-consultation")
   }
   className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white py-3 px-16 lg:px-20 lg:py-6 text-sm md:text-base lg:text-lg xl:text-2xl font-semibold transition-transform hover:scale-105 rounded-md shadow-md flex items-center justify-center"
 >
-  Book Your 60-Min Wealth Consultation – $499
+  Book Your 60-Min Wealth Consultation – $299
 </button>
 
     

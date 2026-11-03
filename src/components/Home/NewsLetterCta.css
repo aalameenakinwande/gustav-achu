@@ -1,0 +1,72 @@
+
+.gustav-phone-input {
+  display: flex;
+  width: 100%;
+}
+
+.gustav-phone-input .react-international-phone-input-container {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.gustav-phone-input .react-international-phone-country-selector {
+  flex-shrink: 0;
+}
+
+.gustav-phone-input .gustav-country-button,
+.gustav-phone-input .react-international-phone-country-selector-button {
+  height: 100%;
+  min-height: 54px;
+  padding: 0 12px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 10%);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gustav-phone-input .gustav-phone-input-field,
+.gustav-phone-input .react-international-phone-input {
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 54px;
+  padding: 16px 20px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 10%);
+  color: white;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gustav-phone-input .gustav-phone-input-field::placeholder,
+.gustav-phone-input .react-international-phone-input::placeholder {
+  color: rgb(255 255 255 / 60%);
+}
+
+.gustav-phone-input .gustav-phone-input-field:focus,
+.gustav-phone-input .react-international-phone-input:focus {
+  border-color: #facc15;
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(250 204 21 / 20%);
+}
+
+.gustav-phone-input .gustav-country-button:focus {
+  border-color: #facc15;
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(250 204 21 / 20%);
+}
+
+.gustav-phone-input .react-international-phone-country-selector-dropdown {
+  z-index: 60;
+  color: #111827;
+}
+
+@media (min-width: 640px) {
+  .gustav-phone-input .gustav-phone-input-field,
+  .gustav-phone-input .react-international-phone-input {
+    font-size: 16px;
+  }
+}

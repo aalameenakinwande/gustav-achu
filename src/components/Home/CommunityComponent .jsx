@@ -66,32 +66,7 @@ const CommunityComponent = ({ title, subtitle }) => {
     </button>
             </div>
           </div>
-          {/* <div className="absolute inset-0 flex flex-col justify-between items-start p-4 sm:p-6 md:p-6 bg-black bg-opacity-60 text-white transition-transform duration-700 transform translate-x-full group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
-            <div className="text-left">
-              <p className="text-xs md:text-lg">
-                Get tools and systems to thrive in the developed economy
-                <br />
-                <br />
-                Offer Includes:
-                <br />
-                • Course Materials
-                <br />
-                • Webinars
-                <br />
-                • Group call once a month
-                <br />
-                • 8 months subscription
-              </p>
-            </div>
-            <a
-              href="https://buy.stripe.com/6oE7tw8q67xa4la3ce"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-2 sm:py-3 bg-[#3C3CC8] text-white font-semibold rounded-md text-sm sm:text-base inline-block text-center"
-            >
-              Access Now
-            </a>
-          </div> */}
+        
         </div>
 
         <div className="relative flex flex-col overflow-hidden  bg-[#181349] text-white">
@@ -116,21 +91,7 @@ const CommunityComponent = ({ title, subtitle }) => {
     </button>
             </div>
           </div>
-          {/* <div className="absolute inset-0 flex flex-col justify-between items-start p-4 sm:p-6 md:p-6 bg-black bg-opacity-60 text-white transition-transform duration-700 transform translate-x-full group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
-            <div className="text-left">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Unite all your organization, family, and team.
-              </p>
-            </div>
-            <a
-              href="https://book.stripe.com/bIYeVY0XE9Fi9Fu000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-2 sm:py-3 bg-[#3C3CC8] text-white font-semibold rounded-md text-sm sm:text-base inline-block text-center"
-            >
-              Access Now
-            </a>
-          </div> */}
+     
         </div>
 
         <div className="relative flex flex-col overflow-hidden  bg-[#181349] text-white">
@@ -155,22 +116,7 @@ const CommunityComponent = ({ title, subtitle }) => {
     </button>
             </div>
           </div>
-          {/* <div className="absolute inset-0 flex flex-col justify-between items-start p-4 sm:p-6 md:p-6 bg-black bg-opacity-60 text-white transition-transform duration-700 transform translate-x-full group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
-            <div className="text-left">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Speak directly with Gustav about finding and fulfilling your
-                purpose for an hour.
-              </p>
-            </div>
-            <a
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-2 sm:py-3 bg-[#3C3CC8] text-white font-semibold rounded-md text-sm sm:text-base inline-block text-center"
-            >
-              Access Now
-            </a>
-          </div> */}
+       
         </div>
 
         <div className="relative flex flex-col overflow-hidden  bg-[#181349] text-white">
@@ -195,21 +141,7 @@ const CommunityComponent = ({ title, subtitle }) => {
     </button>
             </div>
           </div>
-          {/* <div className="absolute inset-0 flex flex-col justify-between items-start p-4 sm:p-6 md:p-6 bg-black bg-opacity-60 text-white transition-transform duration-700 transform translate-x-full group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
-            <div className="text-left">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Master your calling, systems, and purpose fulfillment in life.
-              </p>
-            </div>
-            <a
-              href="https://buy.stripe.com/14kdRU21IbNq3h6145"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-2 sm:py-3 bg-[#3C3CC8] text-white font-semibold rounded-md text-sm sm:text-base inline-block text-center"
-            >
-              Access Now
-            </a>
-          </div> */}
+      
         </div>
       </div>
     </div>

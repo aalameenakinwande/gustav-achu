@@ -1,91 +1,69 @@
+
 import React from "react";
 
 const SectionHeadEb = () => {
-  const scrollToTickets = () => {
-  document
-    .getElementById("tickets-section")
-    ?.scrollIntoView({ behavior: "smooth" });
-};
-
-
   return (
-    <div className="bg-[#0A081A] text-[#BD9A35] px-6 md:px-20 py-4">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <section className="bg-[#0A081A] text-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto">
 
-        {/* Left Content */}
-        <div className="text-center md:text-left space-y-1">
-          <p className="uppercase tracking-widest text-xs sm:text-sm">
-            Live Zoom Webinar • Thursday, 30th April, 2026
-          </p>
+        {/* Main Heading */}
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight">
+            THE WEALTH CLARITY
+            <span className="block mt-2 text-[#BD9A35]">
+              &amp; LEGACY
+            </span>
+            <span className="block mt-2">
+              BLUEPRINT FUNNEL
+            </span>
+          </h2>
 
-          <p className="text-sm sm:text-base font-semibold text-white">
-            THE WEALTH CLARITY & LEGACY BLUEPRINT
-          </p>
+          {/* Gold Divider */}
+          <div className="mx-auto mt-7 h-1 w-20 rounded-full bg-[#BD9A35] sm:mt-9" />
 
-          <p className="text-xs sm:text-sm text-gray-300">
-            General Admission: <span className="text-white">6:00 PM – 7:30 PM CST</span>
-            <span className="mx-2">|</span>
-            VIP: <span className="text-white">6:00 PM – 8:30 PM CST</span>
-          </p>
+          {/* Event Details */}
+          <div className="mt-8 flex flex-col items-center gap-5 sm:mt-10 lg:flex-row lg:justify-center lg:items-stretch lg:gap-0">
+
+            {/* Date */}
+            <div className="w-full max-w-sm px-4 py-2 lg:w-auto lg:max-w-none lg:px-8">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#BD9A35] sm:text-sm">
+                Date
+              </p>
+              <p className="mt-2 text-base font-semibold text-white sm:text-lg md:text-xl">
+                Thursday, January 28th, 2027
+              </p>
+            </div>
+
+            <div className="hidden w-px bg-white/15 lg:block" />
+
+            {/* General Admission */}
+            <div className="w-full max-w-sm px-4 py-2 lg:w-auto lg:max-w-none lg:px-8">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#BD9A35] sm:text-sm">
+                General Admission
+              </p>
+              <p className="mt-2 text-base font-semibold text-white sm:text-lg md:text-xl">
+                6:00PM - 7:30 PM EST
+              </p>
+            </div>
+
+            <div className="hidden w-px bg-white/15 lg:block" />
+
+            {/* VIP */}
+            <div className="w-full max-w-sm px-4 py-2 lg:w-auto lg:max-w-none lg:px-8">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#BD9A35] sm:text-sm">
+                VIP
+              </p>
+              <p className="mt-2 text-base font-semibold text-white sm:text-lg md:text-xl">
+                6:00PM-8:30PM EST
+              </p>
+            </div>
+
+          </div>
         </div>
-{/* Offer Badge */}
 
-<button
-  onClick={scrollToTickets}
- className=" bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 
-             text-black px-8 py-4 rounded-xl shadow-xl text-center
-             hover:scale-105 transition-transform duration-300"
->
-  <p className="text-xs uppercase tracking-widest font-semibold">
-    Total Value: <span className="line-through opacity-80">$2367</span>
-  </p>
-
-  <p className="text-xs uppercase tracking-widest mt-1">
-    Yours Today For
-  </p>
-
-  <p className="text-lg md:text-xl font-extrabold mt-1">
-    General <span className="text-black">$97</span>
-    <span className="mx-2">|</span>
-    VIP <span className="text-red-700">$197</span>
-  </p>
-</button>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default SectionHeadEb;
-
-
-
-
-// import React from "react";
-
-// const EventBanner = () => {
-//   return (
-//     <div className="bg-black text-[#BD9A35] px-6 md:px-20 py-3">
-//       <div className="max-w-7xl mx-auto flex items-center justify-between flex-col md:flex-row gap-3">
-//         <div className="text-center md:text-left">
-//           <p className="uppercase tracking-widCST text-sm">
-//             LIVE Zoom Webinar | Saturday August 2nd | Duration: 1h 30min | 12pm - 1:30pm CST
-//           </p>
-//           <p className="text-sm mt-1 italic text-white">
-//             Turn your paycheck into a wealth-building machine even if you don't make{" "}
-//             <span className="text-[#BD9A35]">$100k</span> or work extra hours
-//           </p>
-//         </div>
-//         <button
-//           className="bg-[#BD9A35] text-[#181349] font-semibold text-sm md:text-base px-6 py-2 hover:bg-yellow-600 transition"
-//           onClick={() => window.open("https://buy.stripe.com/5kQbJ30fBgta3pQ8jqfw40n", "_blank")}
-//         >
-//           Reserve Your Spot Now!
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default EventBanner;
-
-
